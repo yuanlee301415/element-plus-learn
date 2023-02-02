@@ -1,0 +1,10 @@
+@import "./base.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+nav .router-link-active {
+    background-color: #1890ff;
+    color: #fff!important;
+}
