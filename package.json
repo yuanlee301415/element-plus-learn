@@ -1,7 +1,7 @@
 {
-  "name": "vue3-ts-tailwind-template",
-  "version": "1.0.6",
-  "description": "Vue3 + TS + Tailwind 模板",
+  "name": "element-plus-learn",
+  "version": "1.0.0",
+  "description": "Element-Plus 学习",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",

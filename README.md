@@ -1,10 +1,11 @@
-# Vue3-Ts-Tailwind-Template
+# element-plus-learn
 
 ```bash
 npm init vue@latest
 ```
 
-## Vue3 + TS + Tailwind 模板
+## Element-Plus 学习
+### [Forked from: Vue3-TS-Tailwind-Template](https://github.com/yuanlee301415/Vue3-TS-Tailwind-Template)
 
 This template should help get you started developing with Vue 3 in Vite.
 
