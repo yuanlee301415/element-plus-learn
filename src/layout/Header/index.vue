@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <header class="header">
     <div class="headerLeft">
       <div v-if="matched" class="breadcrumbs">
         <template v-for="(item, idx) of matched" :key="item.name">
@@ -34,7 +34,7 @@
         >{{ userInfo.userName }}({{ userInfo.realName }})</span
       >
     </div>
-  </div>
+  </header>
 </template>
 
 <script lang="ts" setup>
@@ -68,7 +68,7 @@ watch(
   line-height: 48px;
   padding: 0 10px;
   background-color: white;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ccc;
   .breadcrumbs {
     dl {
       display: inline-block;

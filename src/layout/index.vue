@@ -2,10 +2,11 @@
   <section class="layout">
     <LayoutSideBar class="sideBar" />
 
-    <section class="main">
+    <main>
       <LayoutHeader />
       <LayoutContent />
-    </section>
+    </main>
+
   </section>
 </template>
 
@@ -23,15 +24,17 @@ import LayoutContent from "./Content/index.vue";
   flex-direction: column;
   width: 100%;
   min-height: 100%;
-  background-color: #f0f2f5;
   .sideBar {
     position: fixed;
     width: @sideWidth;
     height: 100vh;
     background-color: #001529;
   }
-  .main {
-    margin-left: @sideWidth + 2px;
+  main {
+    margin-left: @sideWidth;
+    .container {
+      padding: 10px;
+    }
   }
 }
 </style>

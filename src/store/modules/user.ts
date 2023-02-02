@@ -17,7 +17,7 @@ export const useUserStore = defineStore({
       import.meta.env.VITE_PERMISSION &&
       JSON.parse(import.meta.env.VITE_PERMISSION)
         ? null
-        : new UserInfoModel({ userId: 0, userName: "guest", realName: "游客" }),
+        : new UserInfoModel({ userId: 0, userName: "Guest", realName: "游客" }),
     token: undefined,
     lastUpdateTime: undefined,
   }),
