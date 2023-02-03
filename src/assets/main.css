@@ -8,3 +8,21 @@ nav .router-link-active {
     background-color: #1890ff;
     color: #fff!important;
 }
+
+.demo {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.demo dt {
+    font-weight: bold;
+    text-indent: 1rem;
+    line-height: 3;
+    border-bottom: 1px solid #ccc;
+}
+.demo dd {
+    padding: 1rem;
+}
+.demo dd > * {
+    margin: 5px;
+}
