@@ -6,7 +6,6 @@
       <LayoutHeader />
       <LayoutContent />
     </main>
-
   </section>
 </template>
 

@@ -59,7 +59,7 @@
   <dl class="demo">
     <dt>Group</dt>
     <dd>
-       <LeButtonGroup>
+      <LeButtonGroup>
         <LeButton>Add</LeButton>
         <LeButton>Edit</LeButton>
         <LeButton>Delete</LeButton>
@@ -111,7 +111,6 @@
         <option value="large">Large</option>
       </select>
     </dd>
-
   </dl>
 
   <dl class="demo">
@@ -122,21 +121,20 @@
       <LeButton @click="handleClickC" type="success">Success</LeButton>
     </dd>
   </dl>
-
 </template>
 
 <script lang="ts" setup>
 import type { ButtonType, ButtonSize } from "@/components/LeButton/button";
 
-import {ref} from "vue";
+import { ref } from "vue";
 
 import LeButton from "@/components/LeButton/index.vue";
 import LeButtonGroup from "@/components/LeButtonGroup/index.vue";
 
-const type = ref<ButtonType>('')
-const size = ref<ButtonSize>('')
+const type = ref<ButtonType>("");
+const size = ref<ButtonSize>("");
 
-const handleClickA = () => console.log('ClickA!')
-const handleClickB = () => console.log('ClickB!')
-const handleClickC = () => console.log('ClickC!')
+const handleClickA = () => console.log("ClickA!");
+const handleClickB = () => console.log("ClickB!");
+const handleClickC = () => console.log("ClickC!");
 </script>
