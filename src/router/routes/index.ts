@@ -5,6 +5,8 @@ import ABOUT_ROUTE from "@/router/routes/modules/about";
 import TEST_ROUTE from "@/router/routes/modules/test";
 import BUTTON_ROUTE from "@/router/routes/modules/button";
 import BADGE_ROUTE from "@/router/routes/modules/badge";
+import CARD_ROUTE from "@/router/routes/modules/card";
+
 // import NESTED_ROUTE from "@/router/routes/modules/nested";
 
 export const ROOT_ROUTE: AppRouteRecordRaw = {
@@ -61,6 +63,7 @@ export const basicRoutes = [
   ABOUT_ROUTE,
   BUTTON_ROUTE,
   BADGE_ROUTE,
+  CARD_ROUTE,
   TEST_ROUTE,
   // NESTED_ROUTE,
   PAGE_NOT_FOUND_ROUTE,
