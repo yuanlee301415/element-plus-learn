@@ -2,23 +2,23 @@ import type { AppRouteRecordRaw } from "@/router/types";
 
 import { LAYOUT } from "@/router/constant";
 
-const BUTTON_ROUTE: AppRouteRecordRaw = {
-  path: "/button",
-  name: "Button",
-  redirect: "/button",
+const BADGE_ROUTE: AppRouteRecordRaw = {
+  path: "/badge",
+  name: "Badge",
+  redirect: "/badge",
   component: LAYOUT,
   meta: {
-    title: "Button 按钮",
+    title: "Badge 徽章",
     hiddenChildrenInMenu: true,
   },
   children: [
     {
       path: "",
-      name: "ButtonPage",
-      component: () => import("@/views/Button.vue"),
+      name: "BadgePage",
+      component: () => import("@/views/Badge.vue"),
       meta: {},
     },
   ],
 };
 
-export default BUTTON_ROUTE;
+export default BADGE_ROUTE;
