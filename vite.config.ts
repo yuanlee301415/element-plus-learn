@@ -1,10 +1,12 @@
-import type { UserConfig, ConfigEnv } from "vite";
+import type { UserConfig, ConfigEnv, PluginOption } from "vite";
 
 import { fileURLToPath, URL } from "node:url";
+import { resolve } from "node:path";
 import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { createHtmlPlugin } from "vite-plugin-html";
+import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 
 // @ts-ignore
 import pkg from "./package.json";
@@ -47,6 +49,10 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
           },
         },
       }),
+      createSvgIconsPlugin({
+        iconDirs: [resolve(process.cwd(), "src/assets/icons")],
+        symbolId: "icon-[name]",
+      }) as PluginOption,
     ],
     resolve: {
       alias: {
