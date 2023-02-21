@@ -9,7 +9,7 @@ import type { ButtonType, ButtonSize } from "@/components/LeButton/button";
 
 import { provide, reactive, toRef } from "vue";
 
-import { buttonGroupContextKey } from "@/components/tokens/button";
+import { buttonGroupContextKey } from "@/tokens/button";
 
 export interface Props {
   type?: ButtonType;
@@ -17,7 +17,6 @@ export interface Props {
 }
 
 const props = defineProps<Props>();
-// console.log('group props:', props)
 
 provide(
   buttonGroupContextKey,

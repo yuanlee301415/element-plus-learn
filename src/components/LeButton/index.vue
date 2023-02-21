@@ -9,7 +9,7 @@ import type { ButtonType, ButtonSize } from "@/components/LeButton/button";
 
 import { computed, inject, defineEmits } from "vue";
 
-import { buttonGroupContextKey } from "@/components/tokens/button";
+import { buttonGroupContextKey } from "@/tokens/button";
 
 export interface Props {
   /*按钮主题颜色*/
@@ -29,17 +29,14 @@ export interface Props {
 }
 
 const props = defineProps<Props>();
-// console.log('button props:', props)
 
 const emit = defineEmits(["click"]);
 
 const buttonGroupCtx: Props | void = inject(buttonGroupContextKey);
 
 const _type = computed(() => props.type || buttonGroupCtx?.type);
-// console.log('button _type:', _type)
 
 const _size = computed(() => props.size || buttonGroupCtx?.size);
-// console.log('button _size:', _size)
 
 const cls = computed(() => ({
   [`button--${_type.value}`]: _type.value,

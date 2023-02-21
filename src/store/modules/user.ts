@@ -36,7 +36,6 @@ export const useUserStore = defineStore({
 
     async getUserInfoAction() {
       const data = new UserInfoModel(await getUserInfo());
-      console.log("getUserInfoAction>data:", data);
       this.setUserInfo(data);
       return data;
     },

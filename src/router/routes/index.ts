@@ -7,6 +7,7 @@ import BUTTON_ROUTE from "@/router/routes/modules/button";
 import BADGE_ROUTE from "@/router/routes/modules/badge";
 import CARD_ROUTE from "@/router/routes/modules/card";
 import ICON_ROUTE from "@/router/routes/modules/icon";
+import COLLAPSE_ROUTE from "@/router/routes/modules/collapse";
 
 // import NESTED_ROUTE from "@/router/routes/modules/nested";
 
@@ -66,6 +67,7 @@ export const basicRoutes = [
   BADGE_ROUTE,
   CARD_ROUTE,
   ICON_ROUTE,
+  COLLAPSE_ROUTE,
   TEST_ROUTE,
   // NESTED_ROUTE,
   PAGE_NOT_FOUND_ROUTE,
