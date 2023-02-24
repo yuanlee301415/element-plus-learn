@@ -72,10 +72,9 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from "vue";
+import { ref } from "vue";
 
 import { LeCollapse, LeCollapseItem } from "@/components/LeCollapse";
-import Icon from "@/components/Icon/index.vue";
 
 const names = ref(["home"]);
 

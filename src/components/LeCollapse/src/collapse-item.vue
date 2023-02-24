@@ -31,8 +31,6 @@
 </template>
 
 <script lang="ts" setup>
-import Icon from "@/components/Icon/index.vue";
-
 import { collapseItemProps } from "./typing";
 import { useCollapseItem, useCollapseItemDOM } from "./use-collapse-item";
 

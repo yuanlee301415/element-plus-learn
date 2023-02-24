@@ -4,7 +4,7 @@ import "virtual:svg-icons-register";
 import App from "@/App.vue";
 import { setupRouter } from "@/router";
 import { setupStore } from "@/store";
-import Icon from "@/components/Icon/index.vue";
+import Icon from "@/components/Icon";
 import "@/assets/main.css";
 
 function bootstrap() {
