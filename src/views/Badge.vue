@@ -77,5 +77,5 @@
 
 <script lang="ts" setup>
 import LeBadge from "@/components/LeBadge";
-import LeButton from "@/components/LeButton/index.vue";
+import LeButton from "@/components/LeButton";
 </script>

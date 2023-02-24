@@ -1,5 +1,5 @@
 import type { InjectionKey } from "vue";
-import type { ButtonType, ButtonSize } from "@/components/LeButton/button";
+import type { ButtonType, ButtonSize } from "@/components/LeButton";
 
 export interface ButtonGroupContext {
   type?: ButtonType;

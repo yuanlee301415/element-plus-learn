@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { ButtonType, ButtonSize } from "@/components/LeButton/button";
+import type { ButtonType, ButtonSize } from "@/components/LeButton";
 
 import { provide, reactive, toRef } from "vue";
 

@@ -124,12 +124,12 @@
 </template>
 
 <script lang="ts" setup>
-import type { ButtonType, ButtonSize } from "@/components/LeButton/button";
+import type { ButtonType, ButtonSize } from "@/components/LeButton";
 
 import { ref } from "vue";
 
-import LeButton from "@/components/LeButton/index.vue";
-import LeButtonGroup from "@/components/LeButtonGroup/index.vue";
+import LeButton from "@/components/LeButton";
+import LeButtonGroup from "@/components/LeButtonGroup";
 
 const type = ref<ButtonType>("");
 const size = ref<ButtonSize>("");

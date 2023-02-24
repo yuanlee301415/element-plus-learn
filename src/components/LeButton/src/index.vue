@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { ButtonType, ButtonSize } from "@/components/LeButton/button";
+import type { ButtonType, ButtonSize } from "./typing";
 
 import { computed, inject, defineEmits } from "vue";
 
@@ -32,7 +32,10 @@ const props = defineProps<Props>();
 
 const emit = defineEmits(["click"]);
 
-const buttonGroupCtx: Props | void = inject(buttonGroupContextKey);
+const buttonGroupCtx: Props | void = inject(buttonGroupContextKey, {
+  type: "",
+  size: "",
+});
 
 const _type = computed(() => props.type || buttonGroupCtx?.type);
 
@@ -50,5 +53,5 @@ const handleClick = (e: Event) => emit("click", e);
 </script>
 
 <style>
-@import "style.css";
+@import "./style.css";
 </style>
