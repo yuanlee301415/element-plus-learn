@@ -9,6 +9,7 @@ import CARD_ROUTE from "@/router/routes/modules/card";
 import ICON_ROUTE from "@/router/routes/modules/icon";
 import COLLAPSE_ROUTE from "@/router/routes/modules/collapse";
 
+import TRANSFER_ROUTE from "@/router/routes/modules/transfer";
 // import NESTED_ROUTE from "@/router/routes/modules/nested";
 
 export const ROOT_ROUTE: AppRouteRecordRaw = {
@@ -68,7 +69,8 @@ export const basicRoutes = [
   CARD_ROUTE,
   ICON_ROUTE,
   COLLAPSE_ROUTE,
-  TEST_ROUTE,
+  TRANSFER_ROUTE,
   // NESTED_ROUTE,
+  TEST_ROUTE,
   PAGE_NOT_FOUND_ROUTE,
 ];
