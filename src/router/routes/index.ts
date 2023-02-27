@@ -10,6 +10,7 @@ import ICON_ROUTE from "@/router/routes/modules/icon";
 import COLLAPSE_ROUTE from "@/router/routes/modules/collapse";
 
 import TRANSFER_ROUTE from "@/router/routes/modules/transfer";
+import CALENDAR_ROUTE from "@/router/routes/modules/calendar";
 // import NESTED_ROUTE from "@/router/routes/modules/nested";
 
 export const ROOT_ROUTE: AppRouteRecordRaw = {
@@ -70,6 +71,7 @@ export const basicRoutes = [
   ICON_ROUTE,
   COLLAPSE_ROUTE,
   TRANSFER_ROUTE,
+  CALENDAR_ROUTE,
   // NESTED_ROUTE,
   TEST_ROUTE,
   PAGE_NOT_FOUND_ROUTE,
