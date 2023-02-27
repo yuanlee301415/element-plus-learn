@@ -65,6 +65,7 @@ export const basicRoutes = [
   ROOT_ROUTE,
   HOME_ROUTE,
   ABOUT_ROUTE,
+  TEST_ROUTE,
   BUTTON_ROUTE,
   BADGE_ROUTE,
   CARD_ROUTE,
@@ -73,6 +74,5 @@ export const basicRoutes = [
   TRANSFER_ROUTE,
   CALENDAR_ROUTE,
   // NESTED_ROUTE,
-  TEST_ROUTE,
   PAGE_NOT_FOUND_ROUTE,
 ];
