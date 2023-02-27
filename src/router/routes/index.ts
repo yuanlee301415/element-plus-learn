@@ -11,6 +11,7 @@ import COLLAPSE_ROUTE from "@/router/routes/modules/collapse";
 
 import TRANSFER_ROUTE from "@/router/routes/modules/transfer";
 import CALENDAR_ROUTE from "@/router/routes/modules/calendar";
+import CONTAINER_ROUTE from "@/router/routes/modules/container";
 // import NESTED_ROUTE from "@/router/routes/modules/nested";
 
 export const ROOT_ROUTE: AppRouteRecordRaw = {
@@ -73,6 +74,7 @@ export const basicRoutes = [
   COLLAPSE_ROUTE,
   TRANSFER_ROUTE,
   CALENDAR_ROUTE,
+  CONTAINER_ROUTE,
   // NESTED_ROUTE,
   PAGE_NOT_FOUND_ROUTE,
 ];
