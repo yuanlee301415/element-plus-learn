@@ -7,7 +7,7 @@ const CALENDAR_ROUTE: AppRouteRecordRaw = {
   redirect: "/calendar",
   component: LAYOUT,
   meta: {
-    title: "日历",
+    title: "Calendar 日历",
     hiddenChildrenInMenu: true,
   },
   children: [
