@@ -23,13 +23,15 @@
         </thead>
         <tbody>
           <tr
-            v-for="row of Math.ceil(dates.length / DAYS_IN_WEEK.length)"
-            :key="row"
+            v-for="(row, rowIdx) of Math.ceil(
+              dates.length / DAYS_IN_WEEK.length
+            )"
+            :key="firstDay.getTime() + rowIdx"
             class="calendar-table__row"
           >
             <CellDate
-              v-for="col of DAYS_IN_WEEK.length"
-              :key="col"
+              v-for="(col, colIdx) of DAYS_IN_WEEK.length"
+              :key="lastDay.getTime() + colIdx"
               :cell-date="getCellDate(row, col)"
               :value="date"
               :today="today"
