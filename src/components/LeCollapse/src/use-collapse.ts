@@ -5,7 +5,7 @@ import type {
   CollapseEmits,
 } from "./typing";
 
-import { provide, ref } from "vue";
+import { provide, ref, watch } from "vue";
 import { CHANGE_EVENT, UPDATE_MODEL_EVENT } from "@/constants/event";
 import { collapseContextKey } from "@/tokens/collapse";
 import { ensureArray } from "@/utils";
@@ -43,6 +43,13 @@ export const useCollapse = (
     activeNames,
     handleItemClick,
   });
+
+  watch(
+    () => props.modelValue,
+    (val) => {
+      activeNames.value = ensureArray(val);
+    }
+  );
 
   return {
     activeNames,

@@ -15,11 +15,11 @@
     <template #suffix>秒</template>
   </LeCountdown>
 
-  <button @click="reset(60)">Reset(+1 min)</button>
-  <button @click="reset(3600)">Reset(+1 hour)</button>
-  <button @click="reset(3600 * 24)">Reset(+1 day)</button>
-  <button @click="reset2">Reset(+1 month)</button>
-  <button @click="reset3">Reset(+1 year)</button>
+  <LeButton @click="reset(60)">Reset(+1 min)</LeButton>
+  <LeButton @click="reset(3600)">Reset(+1 hour)</LeButton>
+  <LeButton @click="reset(3600 * 24)">Reset(+1 day)</LeButton>
+  <LeButton @click="reset2">Reset(+1 month)</LeButton>
+  <LeButton @click="reset3">Reset(+1 year)</LeButton>
 </template>
 
 <script lang="ts" setup>

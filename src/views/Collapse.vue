@@ -69,6 +69,26 @@
       </LeCollapse>
     </dd>
   </dl>
+
+  <dl class="demo">
+    <dt>Dyna</dt>
+    <dd>
+      <LeCollapse v-model="names2" @change="handleChange">
+        <LeCollapseItem
+          v-for="item of items"
+          :key="item.name"
+          :title="item.title"
+          :name="item.name"
+          :disabled="item.disabled"
+        >
+          <ol>
+            <li>{{ item.title }} content.</li>
+            <li>{{ item.title }} content.</li>
+          </ol>
+        </LeCollapseItem>
+      </LeCollapse>
+    </dd>
+  </dl>
 </template>
 
 <script lang="ts" setup>
@@ -83,4 +103,18 @@ const name = ref("disabled");
 function handleChange() {
   console.log("handleChange>args:", arguments);
 }
+
+const items = ref([
+  { title: "Home", name: "home" },
+  { title: "News", name: "news" },
+  { title: "About", name: "about" },
+  { title: "Disabled", name: "disabled", disabled: true },
+]);
+const names2 = ref(["home"]);
+setTimeout(() => {
+  names2.value = ["about"];
+  setTimeout(() => {
+    names2.value[1] = "news";
+  }, 2000);
+}, 2000);
 </script>
