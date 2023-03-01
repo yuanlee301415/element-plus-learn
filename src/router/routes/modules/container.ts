@@ -15,9 +15,7 @@ const CONTAINER_ROUTE: AppRouteRecordRaw = {
       path: "",
       name: "ContainerPage",
       component: () => import("@/views/container.vue"),
-      meta: {
-        title: "布局容器",
-      },
+      meta: {},
     },
   ],
 };

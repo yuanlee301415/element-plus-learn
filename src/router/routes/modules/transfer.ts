@@ -15,9 +15,7 @@ const TRANSFER_ROUTE: AppRouteRecordRaw = {
       path: "",
       name: "TransferPage",
       component: () => import("@/views/transfer.vue"),
-      meta: {
-        title: "穿梭框",
-      },
+      meta: {},
     },
   ],
 };

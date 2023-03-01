@@ -7,7 +7,7 @@ const STATISTIC_ROUTE: AppRouteRecordRaw = {
   redirect: "/statistic",
   component: LAYOUT,
   meta: {
-    title: "统计组件",
+    title: "Statistic 统计组件",
     hiddenChildrenInMenu: true,
   },
   children: [
@@ -15,9 +15,7 @@ const STATISTIC_ROUTE: AppRouteRecordRaw = {
       path: "",
       name: "StatisticPage",
       component: () => import("@/views/statistic.vue"),
-      meta: {
-        title: "统计组件",
-      },
+      meta: {},
     },
   ],
 };

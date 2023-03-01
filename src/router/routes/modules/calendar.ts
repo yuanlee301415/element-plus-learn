@@ -15,9 +15,7 @@ const CALENDAR_ROUTE: AppRouteRecordRaw = {
       path: "",
       name: "CalendarPage",
       component: () => import("@/views/Calendar.vue"),
-      meta: {
-        title: "日历",
-      },
+      meta: {},
     },
   ],
 };
