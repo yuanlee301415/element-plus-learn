@@ -1,9 +1,10 @@
 <template>
-  <span :class="cls" class="avatar">
+  <span :class="cls" :style="sizeStyle" class="avatar">
     <img
         v-if="src && !hasLoadError"
         :src="src"
-        :style="style"
+        :style="fitStyle"
+        :alt="alt"
         @error="handleError"
     >
     <slot v-else />
@@ -13,6 +14,7 @@
 <script setup lang="ts">
 import type { ComponentSize } from "@/constants/size";
 import {computed, ref} from "vue";
+import { componentSizes } from "@/constants/size";
 
 type Fit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
 export type Shape = 'circle' | 'square'
@@ -26,18 +28,21 @@ type Props = {
 };
 
 const props = withDefaults(defineProps<Props>(), {
-  size: 'small',
   fit: 'cover',
   shape: 'circle'
 })
 
 const cls = computed(() => ({
   [`avatar--${props.shape}`]: !!props.shape,
-  [`avatar--${props.size}`]: !!props.size
+  [`avatar--${props.size}`]: props.size && componentSizes.includes(props.size)
 }))
 
-const style = computed(() => ({
-  objectFit: props.fit
+const fitStyle = computed(() => ({
+  objectFit: props.fit,
+}))
+
+const sizeStyle = computed(() => ({
+  '--avatar-size': props.size && !componentSizes.includes(props.size) ? `${props.size}px` : void 0
 }))
 
 const emit = defineEmits(['error'])

@@ -13,7 +13,7 @@
     <dd>
       <LeAvatar src="/logo.svg" @error="() => {}">User</LeAvatar>
       <LeAvatar src="/logo.svg">User2</LeAvatar>
-      <LeAvatar src="/logo.svg" @error="() => {}">
+      <LeAvatar src="/logo.svg" @error="onError">
         <img src="/fallback.png">
       </LeAvatar>
     </dd>
@@ -38,14 +38,22 @@
   <dl class="demo">
     <dt>Size</dt>
     <dd>
-      <LeAvatar src="/vue.png" size="large">Vue</LeAvatar>
-      <LeAvatar size="80">User</LeAvatar>
+      <LeAvatar src="/vue.png" alt="undefined">Vue</LeAvatar>
+      <LeAvatar src="/vue.png" size="" alt="''">Vue</LeAvatar>
+      <LeAvatar src="/vue.png" size="small" alt="small">Vue</LeAvatar>
+      <LeAvatar src="/vue.png" size="default" alt="default">Vue</LeAvatar>
+      <LeAvatar src="/vue.png" size="xx" alt="xx">Vue</LeAvatar>
+      <LeAvatar src="/vue.png" size="large" alt="large">Vue</LeAvatar>
+      <LeAvatar src="/vue.png" size="100" alt="100">Vue</LeAvatar>
     </dd>
   </dl>
 
 </template>
 
 <script lang="ts" setup>
-import {reactive, ref} from "vue";
 import LeAvatar from "@/components/LeAvatar";
+
+function onError(e: Error) {
+  console.log(e)
+}
 </script>
