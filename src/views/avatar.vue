@@ -14,7 +14,7 @@
       <LeAvatar src="/logo.svg" @error="() => {}">User</LeAvatar>
       <LeAvatar src="/logo.svg">User2</LeAvatar>
       <LeAvatar src="/logo.svg" @error="onError">
-        <img src="/fallback.png">
+        <img src="/fallback.png" />
       </LeAvatar>
     </dd>
   </dl>
@@ -47,13 +47,12 @@
       <LeAvatar src="/vue.png" size="100" alt="100">Vue</LeAvatar>
     </dd>
   </dl>
-
 </template>
 
 <script lang="ts" setup>
 import LeAvatar from "@/components/LeAvatar";
 
 function onError(e: Error) {
-  console.log(e)
+  console.log(e);
 }
 </script>
