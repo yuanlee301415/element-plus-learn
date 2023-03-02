@@ -15,18 +15,14 @@ export function formatDate(
   value = new Date(value);
   if (!value.getTime?.()) return "";
 
-  const values = [
+  const [year, month, date, hour, min, sec] = [
     value.getFullYear(),
     value.getMonth() + 1,
     value.getDate(),
     value.getHours(),
     value.getMinutes(),
     value.getSeconds(),
-  ];
-  const [year, month, date, hour, min, sec] = values.map((_, idx) => {
-    if (idx === 0) return _;
-    return _ < 10 ? "0" + _ : _;
-  });
+  ].map((_) => ("0" + _).slice(0, 2));
 
   switch (type) {
     case 0:
