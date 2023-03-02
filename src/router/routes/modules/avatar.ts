@@ -7,7 +7,7 @@ const AVATAR_ROUTE: AppRouteRecordRaw = {
   redirect: "/avatar",
   component: LAYOUT,
   meta: {
-    title: "头像",
+    title: "Avatar 头像",
     hiddenChildrenInMenu: true,
   },
   children: [
@@ -15,9 +15,7 @@ const AVATAR_ROUTE: AppRouteRecordRaw = {
       path: "",
       name: "AvatarPage",
       component: () => import("@/views/avatar.vue"),
-      meta: {
-        title: "头像",
-      },
+      meta: {},
     },
   ],
 };
