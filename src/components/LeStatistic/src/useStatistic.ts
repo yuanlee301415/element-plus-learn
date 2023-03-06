@@ -1,7 +1,6 @@
 import type { StatisticProps } from "@/components/LeStatistic/src/typing";
 
 import { computed } from "vue";
-import { padEnd } from "@/utils/string";
 
 export const useStatistic = (props: StatisticProps) => {
   const displayValue = computed(() => {
@@ -11,7 +10,7 @@ export const useStatistic = (props: StatisticProps) => {
     if (Number.isNaN(Number(props.value))) return props.value;
 
     let [integer = "", decimal = ""] = String(props.value).split(".");
-    decimal = padEnd(decimal, "0", props.precision);
+    decimal = decimal.padEnd(props.precision, "0");
     integer = integer.replace(/\B(?=(\d{3})+(?!\d))/g, props.groupSeparator);
 
     return [integer, decimal].join(decimal ? "." : "");
