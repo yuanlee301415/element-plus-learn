@@ -2,6 +2,8 @@
   "extends": "@vue/tsconfig/tsconfig.web.json",
   "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "types/**/*"],
   "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["ESNext", "DOM"],
     "baseUrl": ".",
     "types": ["vite/client"],
     "typeRoots": ["./node_modules/@types/", "./types"],
