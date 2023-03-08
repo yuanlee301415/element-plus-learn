@@ -2,8 +2,8 @@
   <div class="transfer">
     <TransferPanel v-model="leftSelectedKeys" :items="leftItems" />
     <div class="transfer__buttons">
-      <button class="transfer__button" @click="toRight">&lt;</button>
-      <button class="transfer__button" @click="toLeft">&gt;</button>
+      <button class="transfer__button" @click="toLeft">&lt;</button>
+      <button class="transfer__button" @click="toRight">&gt;</button>
     </div>
     <TransferPanel v-model="rightSelectedKeys" :items="rightItems"/>
   </div>

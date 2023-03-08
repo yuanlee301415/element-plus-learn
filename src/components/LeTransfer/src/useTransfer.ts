@@ -19,6 +19,7 @@ export const useTransfer = (props: TransferProps, emit: SetupContext<TransferEmi
     const rightSelectedKeys = ref<TransferKey[]>([]) // 右侧面板选中项的 key
 
     function toRight() {
+        console.log('toRight>leftSelectedKeys:', leftSelectedKeys.value)
         emit(UPDATE_MODEL_EVENT, props.modelValue.concat(leftSelectedKeys.value))
         leftSelectedKeys.value = []
     }
