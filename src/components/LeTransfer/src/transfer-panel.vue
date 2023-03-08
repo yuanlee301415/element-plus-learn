@@ -13,7 +13,7 @@
     </div>
     <div class="transfer-panel__body">
       <label v-for="item of items" :key="item.key" class="transfer-panel__item">
-        <input type="checkbox" @change="handleChange(item.key, $event)"/>
+        <input type="checkbox" @change="change(item.key, $event)"/>
         {{ item.label }}
       </label>
     </div>
@@ -30,10 +30,6 @@ const props = defineProps(panelProps)
 const emit = defineEmits(panelEmit)
 const {keys, change} = usePanel(props, emit)
 
-function handleChange(key: TransferKey, event: Event) {
-  change(key, (event.target as HTMLInputElement).checked)
-  emit(UPDATE_MODEL_EVENT, keys.value)
-}
 </script>
 
 <style scoped></style>

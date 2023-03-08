@@ -12,7 +12,7 @@ import { ref } from "vue";
 import LeTransfer from "@/components/LeTransfer";
 
 interface Option {
-  key: number;
+  key: string;
   label: string;
   disabled: boolean;
 }
@@ -21,7 +21,7 @@ const generateData = () => {
   const data: Option[] = [];
   for (let i = 1; i <= 5; i++) {
     data.push({
-      key: i,
+      key: `Option-${i}`,
       label: `Option ${i}`,
       disabled: i % 4 === 0,
     });
