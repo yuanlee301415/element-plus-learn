@@ -1,16 +1,26 @@
 <template>
   <div class="transfer">
-    <TransferPanel />
+    <TransferPanel v-model="leftSelectedKeys" :items="leftItems" />
     <div class="transfer__buttons">
-      <button class="transfer__button">&lt;</button>
-      <button class="transfer__button">&gt;</button>
+      <button class="transfer__button" @click="toRight">&lt;</button>
+      <button class="transfer__button" @click="toLeft">&gt;</button>
     </div>
-    <TransferPanel />
+    <TransferPanel v-model="rightSelectedKeys" :items="rightItems"/>
   </div>
+
 </template>
 
 <script setup lang="ts">
+import type { TransferKey } from "@/components/LeTransfer/src/typing";
 import TransferPanel from "./transfer-panel.vue";
+import { transferProps } from "@/components/LeTransfer/src/typing";
+import {computed, ref} from "vue";
+import { useTransfer } from "@/components/LeTransfer/src/useTransfer";
+
+const props = defineProps(transferProps)
+const emit = defineEmits()
+const { leftItems, rightItems, leftSelectedKeys, rightSelectedKeys, toRight, toLeft } = useTransfer(props, emit)
+
 </script>
 
 <style>

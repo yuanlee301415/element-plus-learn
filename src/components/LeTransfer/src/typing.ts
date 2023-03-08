@@ -1,8 +1,8 @@
 import type {ExtractPropTypes, PropType} from "vue";
 
-type TransferKey = keyof any
+export type TransferKey = keyof any
 
-type Option = {
+export type Option = {
     key: TransferKey
     label: TransferKey
     disabled: boolean
