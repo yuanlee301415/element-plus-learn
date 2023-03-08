@@ -15,23 +15,24 @@ export const useTransfer = (props: TransferProps, emit: SetupContext<TransferEmi
         return props.data?.filter(item => props.modelValue?.includes(item.key))
     })
 
-    const leftSelectedKeys = ref<TransferKey[]>([]) // 左侧面板选中项的 key
-    const rightSelectedKeys = ref<TransferKey[]>([]) // 右侧面板选中项的 key
+    const leftSelectedKeysModelValue = ref<TransferKey[]>([]) // 左侧面板选中项的 key
+    const rightSelectedKeysModelValue = ref<TransferKey[]>([]) // 右侧面板选中项的 key
 
     function toRight() {
-        console.log('toRight>leftSelectedKeys:', leftSelectedKeys.value)
-        emit(UPDATE_MODEL_EVENT, props.modelValue.concat(leftSelectedKeys.value))
-        leftSelectedKeys.value = []
+        console.log('toRight>leftSelectedKeys:', leftSelectedKeysModelValue.value)
+        emit(UPDATE_MODEL_EVENT, props.modelValue.concat(leftSelectedKeysModelValue.value))
+        leftSelectedKeysModelValue.value = []
     }
 
     function toLeft() {
-        const _keys = props.modelValue?.filter(_ => !rightSelectedKeys.value.includes(_))
+        const _keys = props.modelValue?.filter(_ => !rightSelectedKeysModelValue.value.includes(_))
         emit(UPDATE_MODEL_EVENT, _keys)
-        rightSelectedKeys.value = []
+        rightSelectedKeysModelValue.value = []
     }
+
     return {
-        leftSelectedKeys,
-        rightSelectedKeys,
+        leftSelectedKeysModelValue,
+        rightSelectedKeysModelValue,
         leftItems,
         rightItems,
         toLeft,

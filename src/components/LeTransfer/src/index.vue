@@ -1,11 +1,11 @@
 <template>
   <div class="transfer">
-    <TransferPanel v-model="leftSelectedKeys" :items="leftItems" />
+    <TransferPanel v-model="leftSelectedKeysModelValue" :items="leftItems" />
     <div class="transfer__buttons">
       <button class="transfer__button" @click="toLeft">&lt;</button>
       <button class="transfer__button" @click="toRight">&gt;</button>
     </div>
-    <TransferPanel v-model="rightSelectedKeys" :items="rightItems"/>
+    <TransferPanel v-model="rightSelectedKeysModelValue" :items="rightItems"/>
   </div>
 
 </template>
@@ -19,7 +19,7 @@ import { useTransfer } from "@/components/LeTransfer/src/useTransfer";
 
 const props = defineProps(transferProps)
 const emit = defineEmits(transferEmit)
-const { leftItems, rightItems, leftSelectedKeys, rightSelectedKeys, toRight, toLeft } = useTransfer(props, emit)
+const { leftItems, rightItems, leftSelectedKeysModelValue, rightSelectedKeysModelValue, toRight, toLeft } = useTransfer(props, emit)
 
 </script>
 
