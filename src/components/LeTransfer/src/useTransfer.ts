@@ -21,9 +21,9 @@ export const useTransfer = (props: TransferProps, emit: SetupContext<TransferEmi
     function toRight() {
         const _keys = props.modelValue.concat(leftSelectedKeysModelValue.value)
         console.log('toRight:', {
-            'props.modelValue': props.modelValue,
-            rightSelectedKeysModelValue: rightSelectedKeysModelValue.value,
-            _keys
+            leftSelectedKeysModelValue: leftSelectedKeysModelValue.value,
+            'latest modelValue': props.modelValue,
+            'new modelValue': _keys
         })
         emit(UPDATE_MODEL_EVENT, _keys)
         leftSelectedKeysModelValue.value = []
@@ -32,9 +32,9 @@ export const useTransfer = (props: TransferProps, emit: SetupContext<TransferEmi
     function toLeft() {
         const _keys = props.modelValue?.filter(_ => !rightSelectedKeysModelValue.value.includes(_))
         console.log('toLeft:', {
-            'props.modelValue': props.modelValue,
             rightSelectedKeysModelValue: rightSelectedKeysModelValue.value,
-            _keys
+            'latest modelValue': props.modelValue,
+            'new modelValue': _keys
         })
         emit(UPDATE_MODEL_EVENT, _keys)
         rightSelectedKeysModelValue.value = []
