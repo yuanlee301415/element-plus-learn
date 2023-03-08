@@ -13,12 +13,12 @@
 <script setup lang="ts">
 import type { TransferKey } from "@/components/LeTransfer/src/typing";
 import TransferPanel from "./transfer-panel.vue";
-import { transferProps } from "@/components/LeTransfer/src/typing";
+import { transferProps, transferEmit } from "@/components/LeTransfer/src/typing";
 import {computed, ref} from "vue";
 import { useTransfer } from "@/components/LeTransfer/src/useTransfer";
 
 const props = defineProps(transferProps)
-const emit = defineEmits()
+const emit = defineEmits(transferEmit)
 const { leftItems, rightItems, leftSelectedKeys, rightSelectedKeys, toRight, toLeft } = useTransfer(props, emit)
 
 </script>

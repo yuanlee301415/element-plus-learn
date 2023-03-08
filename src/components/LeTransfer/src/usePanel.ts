@@ -1,24 +1,34 @@
+import type { SetupContext } from 'vue'
+import type { PanelProps, PanelEmit, TransferKey } from "@/components/LeTransfer/src/typing";
+
 import {computed, ref} from "vue";
-import {props} from "@/components/_Template/src/typing";
 
-export const usePanel = (props, emit) => {
-    const _keys = ref([])
+export const usePanel = (props: PanelProps, emit: SetupContext<PanelEmit>['emit']) => {
+    const _keys = ref<TransferKey[]>()
 
-    const keys = computed({
+    const keys = computed<TransferKey[]>({
         get() {
-            return props.modelValue
+            return _keys.value || props.modelValue || []
         },
-        set() {
-
+        set(value) {
+            _keys.value = value
         }
     })
 
-    function setKeys() {
-
+    function change(key: TransferKey, checked: boolean): void {
+        const idx = keys.value?.indexOf(key)
+        if (checked && idx === -1) {
+            // keys.value = [...keys.value, key]
+            keys.value.push(key)
+            return
+        }
+        if (checked === false && idx !== -1) {
+            keys.value.splice(idx, 1)
+        }
     }
 
     return {
         keys,
-        setKeys
+        change
     }
 }
