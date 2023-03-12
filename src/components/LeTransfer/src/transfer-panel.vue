@@ -12,12 +12,13 @@
       </label>
     </div>
     <div class="transfer-panel__body">
-      <div class="transfer-panel__list">
+      <div v-show="!isEmpty" class="transfer-panel__list">
         <label v-for="item of items" :key="item.key" class="transfer-panel__item">
           <input type="checkbox" @change="change(item.key, $event)"/>
           {{ item.label }}
         </label>
       </div>
+      <div v-show="isEmpty" class="transfer-panel__empty">No data</div>
     </div>
   </div>
 
@@ -33,7 +34,7 @@ const props = defineProps(panelProps)
 console.log('Panel>props:', props)
 
 const emit = defineEmits(panelEmit)
-const {keys, change} = usePanel(props, emit)
+const {keys, isEmpty, change} = usePanel(props, emit)
 
 </script>
 

@@ -20,6 +20,8 @@ export const usePanel = (props: PanelProps, emit: SetupContext<PanelEmit>['emit'
 */
     const keys = ref<TransferKey[]>()
 
+    const isEmpty = computed(() => !(props.items && props.items.length))
+
     watchEffect(() => {
         keys.value = props.modelValue
     })
@@ -49,6 +51,7 @@ export const usePanel = (props: PanelProps, emit: SetupContext<PanelEmit>['emit'
 
     return {
         keys,
+        isEmpty,
         change
     }
 }
