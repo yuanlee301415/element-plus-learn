@@ -1,25 +1,29 @@
 import type { SetupContext } from 'vue'
 import type { PanelProps, PanelEmit, TransferKey } from "@/components/LeTransfer/src/typing";
 
-import {computed, ref} from "vue";
+import {computed, ref, toRefs, watchEffect} from "vue";
 import {UPDATE_MODEL_EVENT} from "@/constants/event";
 
 export const usePanel = (props: PanelProps, emit: SetupContext<PanelEmit>['emit']) => {
+/*
     const _keys = ref<TransferKey[]>()
 
     const keys = computed<TransferKey[]>({
         get() {
-            console.log('get keys:', {
-                '_keys.value': _keys.value,
-                'props.modelValue': props.modelValue
-            })
-            return _keys.value || props.modelValue || []
+            return props.modelValue || []
         },
         set(value) {
-            console.log('set keys:', value)
+            // console.log('set keys:', value)
             _keys.value = value
         }
     })
+*/
+    const keys = ref<TransferKey[]>()
+
+    watchEffect(() => {
+        keys.value = props.modelValue
+    })
+
 
     function change(key: TransferKey, event: Event): void {
         const { checked } = event.target as HTMLInputElement
@@ -27,19 +31,20 @@ export const usePanel = (props: PanelProps, emit: SetupContext<PanelEmit>['emit'
         console.warn('change:', {
             key,
             checked,
-            idx
+            idx,
+            keys: keys.value,
         })
 
         if (checked && idx === -1) {
-            keys.value = [...keys.value, key]
             console.log('change>push>key:', key)
+            keys.value = [...keys.value!, key]
         } else if (!checked && idx !== -1) {
-            keys.value = keys.value.filter((_, index) => index !== idx)
             console.log('change>remove>key:', key)
+            keys.value = keys.value!.filter((_, index) => index !== idx)
         }
 
-        console.log('change>keys:', keys.value)
-        emit(UPDATE_MODEL_EVENT, keys.value)
+        console.log('change>emit>keys:', keys.value)
+        emit(UPDATE_MODEL_EVENT, keys.value!)
     }
 
     return {

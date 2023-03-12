@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import {ref, watch} from "vue";
 import LeTransfer from "@/components/LeTransfer";
 
 interface Option {
@@ -31,4 +31,7 @@ const generateData = () => {
 
 const data = ref<Option[]>(generateData());
 const value = ref([]);
+watch(value, (val) => {
+  console.log('Transfer>modelValue:', val)
+})
 </script>

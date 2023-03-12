@@ -16,6 +16,7 @@
         <input type="checkbox" @change="change(item.key, $event)"/>
         {{ item.label }}
       </label>
+      keys: <pre>{{ keys }}</pre>
     </div>
   </div>
 </template>
