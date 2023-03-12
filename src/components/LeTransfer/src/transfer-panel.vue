@@ -7,7 +7,7 @@
         </span>
         <span class="checkbox__label">
           List 1
-          <span>0/15</span>
+          <span>{{ keys.length }}/{{ items.length }}</span>
         </span>
       </label>
     </div>
