@@ -24,7 +24,9 @@
       <div v-show="!isEmpty" :class="{'is-filterable': filterMethod}" class="transfer-panel__list">
         <label v-for="item of filteredItems" :key="item.key" class="transfer-panel__item">
           <input type="checkbox" :checked="keys?.includes(item.key)" @change="change(item.key, $event)"/>
-          {{ item.label }}
+          <span style="padding-left:6px;">
+            <slot name="option" :option="item">{{ item.label }}</slot>
+          </span>
         </label>
       </div>
       <div v-show="isEmpty" class="transfer-panel__empty">No data</div>

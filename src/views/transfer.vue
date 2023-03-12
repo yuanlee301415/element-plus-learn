@@ -9,6 +9,10 @@
           :button-texts="['ToLeft', 'ToRight']"
           :filter-method="filterMethod"
       >
+        <template #default="{option}">
+          {{ option.key }}-{{ option.label }}
+        </template>
+
         <template #left-footer>
           <LeButton size="small">Left Option</LeButton>
         </template>

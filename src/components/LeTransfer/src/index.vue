@@ -1,6 +1,10 @@
 <template>
   <div class="transfer">
     <TransferPanel v-model="leftSelectedKeysModelValue" :items="leftItems" :title="titles[0]" :filter-method="filterMethod">
+      <template #option="{option}">
+        <slot :option="option"></slot>
+      </template>
+
       <template v-if="$slots['left-footer']" #footer>
         <slot name="left-footer"/>
       </template>
@@ -16,6 +20,10 @@
     </div>
 
     <TransferPanel v-model="rightSelectedKeysModelValue" :items="rightItems" :title="titles[1]" :filter-method="filterMethod">
+      <template #option="{option}">
+        <slot :option="option"></slot>
+      </template>
+
       <template v-if="$slots['right-footer']" #footer>
         <slot  name="right-footer"/>
       </template>
