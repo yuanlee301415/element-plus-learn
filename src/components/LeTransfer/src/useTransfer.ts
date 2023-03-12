@@ -7,12 +7,12 @@ import {UPDATE_MODEL_EVENT} from "@/constants/event";
 export const useTransfer = (props: TransferProps, emit: SetupContext<TransferEmit>['emit']) => {
     // const leftItems = ref<Option[]>([]) // 数组中的各项 key 不包含在父组件的 modelValue 中
     const leftItems = computed(() => {
-        return props.data?.filter(item => !props.modelValue?.includes(item.key))
+        return props.data?.filter(item => !props.modelValue?.includes(item.key)) ?? []
     })
 
     // const rightItems = ref<Option[]>([]) // 数组中的各项 key 包含在父组件的 modelValue 中
     const rightItems = computed(() => {
-        return props.data?.filter(item => props.modelValue?.includes(item.key))
+        return props.data?.filter(item => props.modelValue?.includes(item.key)) ?? []
     })
 
     const leftSelectedKeysModelValue = ref<TransferKey[]>([]) // 左侧面板选中项的 key
@@ -26,7 +26,7 @@ export const useTransfer = (props: TransferProps, emit: SetupContext<TransferEmi
     })
 
     function toRight() {
-        const _keys = props.modelValue.concat(leftSelectedKeysModelValue.value)
+        const _keys = props.modelValue.concat(leftSelectedKeysModelValue.value).filter((key) => leftItems.value.find(item => !item.disabled && item.key === key))
 /*
         console.log('toRight:', {
             leftSelectedKeysModelValue: leftSelectedKeysModelValue.value,

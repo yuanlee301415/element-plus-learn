@@ -3,7 +3,7 @@
     <div class="transfer-panel__header">
       <label class="checkbox">
         <span class="checkbox__input">
-          <input type="checkbox" :checked="selectedAll" @change="changeAll($event)"/>
+          <input type="checkbox" v-model="selectedAll" @change="changeAll($event)"/>
         </span>
         <span class="checkbox__label">
           {{ title }}
@@ -21,9 +21,9 @@
           >
         </div>
       </div>
-      <div v-show="!isEmpty" :class="{'is-filterable': filterMethod}" class="transfer-panel__list">
-        <label v-for="(item, idx) of filteredItems" :key="item.key" class="transfer-panel__item">
-          <input type="checkbox" :checked="keys?.includes(item.key)" @change="change(item.key, $event)"/>
+      <div v-show="!isEmpty" :class="[{'is-filterable': filterMethod}, 'transfer-panel__list']">
+        <label v-for="(item, idx) of filteredItems" :key="item.key" :class="[{'is-disabled': item.disabled},'transfer-panel__item']">
+          <input type="checkbox" :disabled="item.disabled" :checked="keys?.includes(item.key)" @change="change(item.key, $event)"/>
           <span style="padding-left:6px;">
             <slot name="option" :option="{ idx, ...item}">{{ item.label }}</slot>
           </span>

@@ -23,7 +23,7 @@ export const usePanel = (props: PanelProps, emit: SetupContext<PanelEmit>['emit'
     const query = ref('')
 
     const isEmpty = computed(() => !(props.items && props.items.length))
-    const filteredItems = computed(() => props.filterMethod ? props.items?.filter(_ => props.filterMethod?.(query.value, _)) : props.items)
+    const filteredItems = computed(() => (props.filterMethod ? props.items?.filter(_ => props.filterMethod?.(query.value, _)) : props.items) ?? [])
 
     watchEffect(() => {
         keys.value = props.modelValue
@@ -55,13 +55,15 @@ export const usePanel = (props: PanelProps, emit: SetupContext<PanelEmit>['emit'
 
     function changeAll(event: Event) {
         const { checked } = event.target as HTMLInputElement
-        selectedAll.value = checked
         console.log('selectedAll.value:', selectedAll.value)
         if (checked) {
-            keys.value = filteredItems.value?.map(_ => _.key)
+            keys.value = filteredItems.value.filter(_ => !_.disabled).map(_ => _.key)
         } else {
             keys.value = []
         }
+
+        console.log('selectedAll>keys:', keys.value)
+        selectedAll.value = !!keys.value?.length
         emit(UPDATE_MODEL_EVENT, keys.value!)
     }
 
