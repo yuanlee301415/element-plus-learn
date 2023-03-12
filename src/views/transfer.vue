@@ -8,7 +8,15 @@
           :titles="['Source', 'Target']"
           :button-texts="['ToLeft', 'ToRight']"
           :filter-method="filterMethod"
-      />
+      >
+        <template #left-footer>
+          <LeButton size="small">Left Option</LeButton>
+        </template>
+
+        <template #right-footer>
+          <LeButton size="small">Right Option</LeButton>
+        </template>
+      </LeTransfer>
     </dd>
   </dl>
 </template>
@@ -17,15 +25,10 @@
 import type { TransferDataItem } from "@/components/LeTransfer/src/typing";
 import {ref, watch} from "vue";
 import LeTransfer from "@/components/LeTransfer";
-
-interface Option {
-  key: string;
-  label: string;
-  disabled: boolean;
-}
+import LeButton from "@/components/LeButton/src/index.vue";
 
 const generateData = () => {
-  const data: Option[] = [];
+  const data: TransferDataItem[] = [];
   for (let i = 1; i <= 30; i++) {
     data.push({
       key: `Option-${i}`,
@@ -36,7 +39,7 @@ const generateData = () => {
   return data;
 };
 
-const data = ref<Option[]>(generateData());
+const data = ref<TransferDataItem[]>(generateData());
 const value = ref([]);
 
 watch(value, (val) => {
@@ -44,7 +47,6 @@ watch(value, (val) => {
 })
 
 function filterMethod(query: string, item: TransferDataItem) {
-  console.log('filterMethod:', { query, item  })
   return String(item.label).toLowerCase().includes(query.toLowerCase())
 }
 </script>

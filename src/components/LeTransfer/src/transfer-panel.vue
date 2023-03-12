@@ -29,6 +29,10 @@
       </div>
       <div v-show="isEmpty" class="transfer-panel__empty">No data</div>
     </div>
+
+    <div v-if="$slots.footer" class="transfer-panel__footer">
+      <slot name="footer"></slot>
+    </div>
   </div>
 
 </template>
