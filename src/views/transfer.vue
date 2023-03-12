@@ -10,7 +10,7 @@
           :filter-method="filterMethod"
       >
         <template #default="{option}">
-          {{ option.key }}-{{ option.label }}
+          {{ option.idx + 1 }}-{{ option.label }}
         </template>
 
         <template #left-footer>

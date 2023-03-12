@@ -22,10 +22,10 @@
         </div>
       </div>
       <div v-show="!isEmpty" :class="{'is-filterable': filterMethod}" class="transfer-panel__list">
-        <label v-for="item of filteredItems" :key="item.key" class="transfer-panel__item">
+        <label v-for="(item, idx) of filteredItems" :key="item.key" class="transfer-panel__item">
           <input type="checkbox" :checked="keys?.includes(item.key)" @change="change(item.key, $event)"/>
           <span style="padding-left:6px;">
-            <slot name="option" :option="item">{{ item.label }}</slot>
+            <slot name="option" :option="{ idx, ...item}">{{ item.label }}</slot>
           </span>
         </label>
       </div>
