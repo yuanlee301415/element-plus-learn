@@ -19,7 +19,7 @@ interface Option {
 
 const generateData = () => {
   const data: Option[] = [];
-  for (let i = 1; i <= 3; i++) {
+  for (let i = 1; i <= 10; i++) {
     data.push({
       key: `Option-${i}`,
       label: `Option ${i}`,

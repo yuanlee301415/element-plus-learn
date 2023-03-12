@@ -12,13 +12,15 @@
       </label>
     </div>
     <div class="transfer-panel__body">
-      <label v-for="item of items" :key="item.key" class="transfer-panel__item">
-        <input type="checkbox" @change="change(item.key, $event)"/>
-        {{ item.label }}
-      </label>
-      keys: <pre>{{ keys }}</pre>
+      <div class="transfer-panel__list">
+        <label v-for="item of items" :key="item.key" class="transfer-panel__item">
+          <input type="checkbox" @change="change(item.key, $event)"/>
+          {{ item.label }}
+        </label>
+      </div>
     </div>
   </div>
+
 </template>
 
 <script setup lang="ts">
