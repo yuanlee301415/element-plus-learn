@@ -8,6 +8,7 @@
           :titles="['Source', 'Target']"
           :button-texts="['ToLeft', 'ToRight']"
           :filter-method="filterMethod"
+          filter-placeholder="Type keyword"
           filterable
       >
         <template #default="{option}">

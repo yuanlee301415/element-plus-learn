@@ -1,6 +1,10 @@
+<!--
+// Todo: 如何自动复制属性到子组件
+
+-->
 <template>
   <div class="transfer">
-    <TransferPanel v-model="leftSelectedKeysModelValue" :items="leftItems" :title="titles[0]" :filterable="filterable" :filter-method="filterMethod">
+    <TransferPanel v-model="leftSelectedKeysModelValue" :items="leftItems" :title="titles[0]" v-bind="$attrs">
       <template #option="{option}">
         <slot :option="option"></slot>
       </template>
@@ -19,7 +23,7 @@
       </LeButton>
     </div>
 
-    <TransferPanel v-model="rightSelectedKeysModelValue" :items="rightItems" :title="titles[1]" :filterable="filterable" :filter-method="filterMethod">
+    <TransferPanel v-model="rightSelectedKeysModelValue" :items="rightItems" :title="titles[1]" v-bind="$attrs">
       <template #option="{option}">
         <slot :option="option"></slot>
       </template>
@@ -45,11 +49,6 @@ console.log('Transfer>props:', props)
 
 const emit = defineEmits(transferEmit)
 const { leftItems, rightItems, leftSelectedKeysModelValue, rightSelectedKeysModelValue, toRight, toLeft } = useTransfer(props, emit)
-
-const slots = useSlots()
-console.log('Transfer>slots:', slots)
-console.log('Transfer>left-footer:', slots['left-footer'])
-console.log('Transfer>right-footer:', slots['right-footer'])
 
 </script>
 

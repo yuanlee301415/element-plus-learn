@@ -16,8 +16,8 @@
         <div class="input__wrapper">
           <input
               v-model="query"
-            class="input__inner" type="text" autocomplete="off" tabindex="0"
-            placeholder="State Abbreviations"
+              :placeholder="filterPlaceholder"
+              class="input__inner" type="text" autocomplete="off" tabindex="0"
           >
         </div>
       </div>
