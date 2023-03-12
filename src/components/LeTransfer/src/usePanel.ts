@@ -19,11 +19,12 @@ export const usePanel = (props: PanelProps, emit: SetupContext<PanelEmit>['emit'
     })
 */
     const keys = ref<TransferKey[]>()
-
     const isEmpty = computed(() => !(props.items && props.items.length))
+    const selectedAll = ref(false)
 
     watchEffect(() => {
         keys.value = props.modelValue
+        selectedAll.value = !!props.modelValue?.length
     })
 
 
@@ -49,9 +50,23 @@ export const usePanel = (props: PanelProps, emit: SetupContext<PanelEmit>['emit'
         emit(UPDATE_MODEL_EVENT, keys.value!)
     }
 
+    function changeAll(event: Event) {
+        const { checked } = event.target as HTMLInputElement
+        selectedAll.value = checked
+        console.log('selectedAll.value:', selectedAll.value)
+        if (checked) {
+            keys.value = props.items?.map(_ => _.key)
+        } else {
+            keys.value = []
+        }
+        emit(UPDATE_MODEL_EVENT, keys.value!)
+    }
+
     return {
         keys,
         isEmpty,
-        change
+        selectedAll,
+        change,
+        changeAll
     }
 }

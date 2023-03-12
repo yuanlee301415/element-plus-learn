@@ -3,7 +3,7 @@
     <div class="transfer-panel__header">
       <label class="checkbox">
         <span class="checkbox__input">
-          <input type="checkbox"/>
+          <input type="checkbox" :checked="selectedAll" @change="changeAll($event)"/>
         </span>
         <span class="checkbox__label">
           {{ title }}
@@ -14,7 +14,7 @@
     <div class="transfer-panel__body">
       <div v-show="!isEmpty" class="transfer-panel__list">
         <label v-for="item of items" :key="item.key" class="transfer-panel__item">
-          <input type="checkbox" @change="change(item.key, $event)"/>
+          <input type="checkbox" :checked="keys?.includes(item.key)" @change="change(item.key, $event)"/>
           {{ item.label }}
         </label>
       </div>
@@ -34,7 +34,7 @@ const props = defineProps(panelProps)
 console.log('Panel>props:', props)
 
 const emit = defineEmits(panelEmit)
-const {keys, isEmpty, change} = usePanel(props, emit)
+const {keys, isEmpty, change, selectedAll, changeAll} = usePanel(props, emit)
 
 </script>
 
