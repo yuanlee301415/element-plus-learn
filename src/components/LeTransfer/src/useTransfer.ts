@@ -1,5 +1,5 @@
 import type { SetupContext} from "vue";
-import type { TransferKey, TransferProps, TransferEmit, Option } from "@/components/LeTransfer/src/typing";
+import type { TransferKey, TransferProps, TransferEmit, TransferDataItem } from "@/components/LeTransfer/src/typing";
 
 import {computed, ref, watch} from "vue";
 import {UPDATE_MODEL_EVENT} from "@/constants/event";
@@ -17,6 +17,7 @@ export const useTransfer = (props: TransferProps, emit: SetupContext<TransferEmi
 
     const leftSelectedKeysModelValue = ref<TransferKey[]>([]) // 左侧面板选中项的 key
     const rightSelectedKeysModelValue = ref<TransferKey[]>([]) // 右侧面板选中项的 key
+
     watch(leftSelectedKeysModelValue, (value) => {
         console.log('watch>leftSelectedKeysModelValue:', value)
     })

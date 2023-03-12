@@ -12,8 +12,17 @@
       </label>
     </div>
     <div class="transfer-panel__body">
-      <div v-show="!isEmpty" class="transfer-panel__list">
-        <label v-for="item of items" :key="item.key" class="transfer-panel__item">
+      <div v-if="filterMethod" class="input input--default input--prefix input--suffix transfer-panel__filter">
+        <div class="input__wrapper">
+          <input
+              v-model="query"
+            class="input__inner" type="text" autocomplete="off" tabindex="0"
+            placeholder="State Abbreviations"
+          >
+        </div>
+      </div>
+      <div v-show="!isEmpty" :class="{'is-filterable': filterMethod}" class="transfer-panel__list">
+        <label v-for="item of filteredItems" :key="item.key" class="transfer-panel__item">
           <input type="checkbox" :checked="keys?.includes(item.key)" @change="change(item.key, $event)"/>
           {{ item.label }}
         </label>
@@ -25,16 +34,16 @@
 </template>
 
 <script setup lang="ts">
-import type { TransferKey } from "@/components/LeTransfer/src/typing";
-import { UPDATE_MODEL_EVENT } from "@/constants/event";
-import { panelProps, panelEmit } from "@/components/LeTransfer/src/typing";
-import { usePanel } from "@/components/LeTransfer/src/usePanel";
+import type {TransferKey} from "@/components/LeTransfer/src/typing";
+import {UPDATE_MODEL_EVENT} from "@/constants/event";
+import {panelProps, panelEmit} from "@/components/LeTransfer/src/typing";
+import {usePanel} from "@/components/LeTransfer/src/usePanel";
 
 const props = defineProps(panelProps)
 console.log('Panel>props:', props)
 
 const emit = defineEmits(panelEmit)
-const {keys, isEmpty, change, selectedAll, changeAll} = usePanel(props, emit)
+const {keys, isEmpty, change, selectedAll, changeAll, query, filteredItems } = usePanel(props, emit)
 
 </script>
 

@@ -19,8 +19,11 @@ export const usePanel = (props: PanelProps, emit: SetupContext<PanelEmit>['emit'
     })
 */
     const keys = ref<TransferKey[]>()
-    const isEmpty = computed(() => !(props.items && props.items.length))
     const selectedAll = ref(false)
+    const query = ref('')
+
+    const isEmpty = computed(() => !(props.items && props.items.length))
+    const filteredItems = computed(() => props.filterMethod ? props.items?.filter(_ => props.filterMethod?.(query.value, _)) : props.items)
 
     watchEffect(() => {
         keys.value = props.modelValue
@@ -55,7 +58,7 @@ export const usePanel = (props: PanelProps, emit: SetupContext<PanelEmit>['emit'
         selectedAll.value = checked
         console.log('selectedAll.value:', selectedAll.value)
         if (checked) {
-            keys.value = props.items?.map(_ => _.key)
+            keys.value = filteredItems.value?.map(_ => _.key)
         } else {
             keys.value = []
         }
@@ -67,6 +70,8 @@ export const usePanel = (props: PanelProps, emit: SetupContext<PanelEmit>['emit'
         isEmpty,
         selectedAll,
         change,
-        changeAll
+        changeAll,
+        query,
+        filteredItems
     }
 }

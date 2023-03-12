@@ -1,6 +1,7 @@
 <template>
   <div class="transfer">
-    <TransferPanel v-model="leftSelectedKeysModelValue" :items="leftItems" :title="titles[0]" />
+    <TransferPanel v-model="leftSelectedKeysModelValue" :items="leftItems" :title="titles[0]" :filter-method="filterMethod"/>
+
     <div class="transfer__buttons">
       <LeButton :class="{'is-with-texts': buttonTexts[0]}" type="primary" class="transfer__button" @click="toLeft">
         <span>&lt;<span>{{ buttonTexts[0] }}</span></span>
@@ -9,7 +10,8 @@
         <span><span>{{ buttonTexts[1] }}</span>&gt;</span>
       </LeButton>
     </div>
-    <TransferPanel v-model="rightSelectedKeysModelValue" :items="rightItems" :title="titles[1]" />
+
+    <TransferPanel v-model="rightSelectedKeysModelValue" :items="rightItems" :title="titles[1]" :filter-method="filterMethod"/>
   </div>
 
 </template>

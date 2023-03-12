@@ -1,9 +1,9 @@
 import type {ExtractPropTypes, PropType} from "vue";
 import {UPDATE_MODEL_EVENT} from "@/constants/event";
 
-export type TransferKey = keyof any
+export type TransferKey = string | number
 
-export type Option = {
+export type TransferDataItem = {
     key: TransferKey
     label: TransferKey
     disabled: boolean
@@ -15,7 +15,7 @@ export const transferProps = {
         default: () => []
     },
     data: {
-        type: Array as PropType<Option[]>
+        type: Array as PropType<TransferDataItem[]>
     },
     titles: {
         type: Array as PropType<string[]>,
@@ -24,6 +24,9 @@ export const transferProps = {
     buttonTexts: {
         type: Array as PropType<string[]>,
         default: () => ['', '']
+    },
+    filterMethod: {
+        type: Function as PropType<Function>
     }
 }
 
@@ -40,9 +43,12 @@ export const panelProps = {
         type: Array as PropType<TransferKey[]>,
         default: () => []
     },
-    items: Array as PropType<Option[]>,
+    items: Array as PropType<TransferDataItem[]>,
     title: String,
-    buttonText: String
+    buttonText: String,
+    filterMethod: {
+        type: Function as PropType<Function>
+    }
 }
 
 export type PanelProps = ExtractPropTypes<typeof panelProps>
