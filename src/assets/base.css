@@ -209,7 +209,7 @@ a {
   transition: color 0.3s;
 }
 
-.is-disabled {
-  color: var(--disabled-text-color);
-  cursor: not-allowed;
+.is-disabled, .is-disabled:hover {
+  color: var(--disabled-text-color)!important;
+  cursor: not-allowed!important;
 }

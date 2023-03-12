@@ -44,7 +44,7 @@ const generateData = () => {
 };
 
 const data = ref<TransferDataItem[]>(generateData());
-const value = ref([]);
+const value = ref([data.value[0].key, data.value[1].key, data.value[3].key, data.value[7].key]);
 
 watch(value, (val) => {
   console.log('Transfer>modelValue:', val)
