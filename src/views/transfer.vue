@@ -2,7 +2,7 @@
   <dl>
     <dt>Basic</dt>
     <dd>
-      <LeTransfer v-model="value" :data="data" :titles="['Source', 'Target']"/>
+      <LeTransfer v-model="value" :data="data" :titles="['Source', 'Target']" :button-texts="['ToLeft', 'ToRight']"/>
     </dd>
   </dl>
 </template>

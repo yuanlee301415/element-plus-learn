@@ -20,6 +20,10 @@ export const transferProps = {
     titles: {
         type: Array as PropType<string[]>,
         default: () => ['List 1', 'List 2']
+    },
+    buttonTexts: {
+        type: Array as PropType<string[]>,
+        default: () => ['', '']
     }
 }
 
@@ -37,7 +41,8 @@ export const panelProps = {
         default: () => []
     },
     items: Array as PropType<Option[]>,
-    title: String
+    title: String,
+    buttonText: String
 }
 
 export type PanelProps = ExtractPropTypes<typeof panelProps>

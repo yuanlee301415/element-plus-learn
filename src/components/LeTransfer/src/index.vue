@@ -2,8 +2,12 @@
   <div class="transfer">
     <TransferPanel v-model="leftSelectedKeysModelValue" :items="leftItems" :title="titles[0]" />
     <div class="transfer__buttons">
-      <button class="transfer__button" @click="toLeft">&lt;</button>
-      <button class="transfer__button" @click="toRight">&gt;</button>
+      <LeButton :class="{'is-with-texts': buttonTexts[0]}" type="primary" class="transfer__button" @click="toLeft">
+        <span>&lt;<span>{{ buttonTexts[0] }}</span></span>
+      </LeButton>
+      <LeButton :class="{'is-with-texts': buttonTexts[1]}" type="primary" class="transfer__button" @click="toRight">
+        <span><span>{{ buttonTexts[1] }}</span>&gt;</span>
+      </LeButton>
     </div>
     <TransferPanel v-model="rightSelectedKeysModelValue" :items="rightItems" :title="titles[1]" />
   </div>
