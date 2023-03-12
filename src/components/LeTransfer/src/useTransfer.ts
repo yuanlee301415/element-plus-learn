@@ -26,7 +26,7 @@ export const useTransfer = (props: TransferProps, emit: SetupContext<TransferEmi
     })
 
     function toRight() {
-        const _keys = props.modelValue.concat(leftSelectedKeysModelValue.value).filter((key) => leftItems.value.find(item => !item.disabled && item.key === key))
+        const _keys = props.modelValue.concat(leftSelectedKeysModelValue.value)
 /*
         console.log('toRight:', {
             leftSelectedKeysModelValue: leftSelectedKeysModelValue.value,
