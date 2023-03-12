@@ -25,9 +25,8 @@ export const transferProps = {
         type: Array as PropType<string[]>,
         default: () => ['', '']
     },
-    filterMethod: {
-        type: Function as PropType<Function>
-    }
+    filterable: Boolean,
+    filterMethod: Function
 }
 
 export type TransferProps = ExtractPropTypes<typeof transferProps>
@@ -46,9 +45,8 @@ export const panelProps = {
     items: Array as PropType<TransferDataItem[]>,
     title: String,
     buttonText: String,
-    filterMethod: {
-        type: Function as PropType<Function>
-    }
+    filterable: Boolean,
+    filterMethod: Function
 }
 
 export type PanelProps = ExtractPropTypes<typeof panelProps>

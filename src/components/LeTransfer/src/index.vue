@@ -1,6 +1,6 @@
 <template>
   <div class="transfer">
-    <TransferPanel v-model="leftSelectedKeysModelValue" :items="leftItems" :title="titles[0]" :filter-method="filterMethod">
+    <TransferPanel v-model="leftSelectedKeysModelValue" :items="leftItems" :title="titles[0]" :filterable="filterable" :filter-method="filterMethod">
       <template #option="{option}">
         <slot :option="option"></slot>
       </template>
@@ -19,7 +19,7 @@
       </LeButton>
     </div>
 
-    <TransferPanel v-model="rightSelectedKeysModelValue" :items="rightItems" :title="titles[1]" :filter-method="filterMethod">
+    <TransferPanel v-model="rightSelectedKeysModelValue" :items="rightItems" :title="titles[1]" :filterable="filterable" :filter-method="filterMethod">
       <template #option="{option}">
         <slot :option="option"></slot>
       </template>

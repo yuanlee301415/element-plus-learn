@@ -12,7 +12,7 @@
       </label>
     </div>
     <div class="transfer-panel__body">
-      <div v-if="filterMethod" class="input input--default input--prefix input--suffix transfer-panel__filter">
+      <div v-if="filterable" class="input input--default input--prefix input--suffix transfer-panel__filter">
         <div class="input__wrapper">
           <input
               v-model="query"
@@ -21,7 +21,7 @@
           >
         </div>
       </div>
-      <div v-show="!isEmpty" :class="[{'is-filterable': filterMethod}, 'transfer-panel__list']">
+      <div v-show="!isEmpty" :class="[{'is-filterable': filterable}, 'transfer-panel__list']">
         <label v-for="(item, idx) of filteredItems" :key="item.key" :class="[{'is-disabled': item.disabled},'transfer-panel__item']">
           <input type="checkbox" :disabled="item.disabled" :checked="keys?.includes(item.key)" @change="change(item.key, $event)"/>
           <span style="padding-left:6px;">

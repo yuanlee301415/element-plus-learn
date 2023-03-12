@@ -8,6 +8,7 @@
           :titles="['Source', 'Target']"
           :button-texts="['ToLeft', 'ToRight']"
           :filter-method="filterMethod"
+          filterable
       >
         <template #default="{option}">
           {{ option.idx + 1 }}-{{ option.label }}
@@ -35,7 +36,7 @@ const generateData = () => {
   const data: TransferDataItem[] = [];
   for (let i = 1; i <= 30; i++) {
     data.push({
-      key: `Option-${i}`,
+      key: `option-${i}`,
       label: `Option ${i}`,
       disabled: i % 4 === 0,
     });
