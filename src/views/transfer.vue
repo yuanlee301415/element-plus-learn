@@ -2,7 +2,7 @@
   <dl>
     <dt>Basic</dt>
     <dd>
-      <LeTransfer v-model="value" :data="data" />
+      <LeTransfer v-model="value" :data="data" :titles="['Source', 'Target']"/>
     </dd>
   </dl>
 </template>

@@ -16,6 +16,10 @@ export const transferProps = {
     },
     data: {
         type: Array as PropType<Option[]>
+    },
+    titles: {
+        type: Array as PropType<string[]>,
+        default: () => ['List 1', 'List 2']
     }
 }
 
@@ -32,7 +36,8 @@ export const panelProps = {
         type: Array as PropType<TransferKey[]>,
         default: () => []
     },
-    items: Array as PropType<Option[]>
+    items: Array as PropType<Option[]>,
+    title: String
 }
 
 export type PanelProps = ExtractPropTypes<typeof panelProps>

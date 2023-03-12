@@ -6,7 +6,7 @@
           <input type="checkbox"/>
         </span>
         <span class="checkbox__label">
-          List 1
+          {{ title }}
           <span>{{ keys.length }}/{{ items.length }}</span>
         </span>
       </label>
@@ -30,6 +30,8 @@ import { panelProps, panelEmit } from "@/components/LeTransfer/src/typing";
 import { usePanel } from "@/components/LeTransfer/src/usePanel";
 
 const props = defineProps(panelProps)
+console.log('Panel>props:', props)
+
 const emit = defineEmits(panelEmit)
 const {keys, change} = usePanel(props, emit)
 
