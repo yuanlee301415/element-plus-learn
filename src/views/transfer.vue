@@ -10,6 +10,7 @@
           :filter-method="filterMethod"
           filter-placeholder="Type keyword"
           filterable
+          @change="handleChange"
       >
         <template #default="{option}">
           {{ option.idx + 1 }}-{{ option.label }}
@@ -54,5 +55,9 @@ watch(value, (val) => {
 
 function filterMethod(query: string, item: TransferDataItem) {
   return String(item.label).toLowerCase().includes(query.toLowerCase())
+}
+
+function handleChange(dir, oldValues, newValues) {
+  console.log('handleChange:', { dir, oldValues, newValues })
 }
 </script>

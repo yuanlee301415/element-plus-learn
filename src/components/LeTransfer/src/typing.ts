@@ -30,7 +30,8 @@ export const transferProps = {
 export type TransferProps = ExtractPropTypes<typeof transferProps>
 
 export const transferEmit = {
-    [UPDATE_MODEL_EVENT]: (keys: TransferKey[]) => Array.isArray(keys)
+    [UPDATE_MODEL_EVENT]: (keys: TransferKey[]) => Array.isArray(keys),
+    change: (dir, oldValues, newValues) => true
 }
 
 export type TransferEmit = typeof transferEmit

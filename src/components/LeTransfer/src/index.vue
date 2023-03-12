@@ -1,7 +1,3 @@
-<!--
-// Todo: 如何自动复制属性到子组件
-
--->
 <template>
   <div class="transfer">
     <TransferPanel v-model="leftSelectedKeysModelValue" :items="leftItems" :title="titles[0]" v-bind="$attrs">
