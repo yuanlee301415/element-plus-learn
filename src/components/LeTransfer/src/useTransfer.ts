@@ -49,7 +49,7 @@ export const useTransfer = (props: TransferProps, emit: SetupContext<TransferEmi
         })
 */
         emit(UPDATE_MODEL_EVENT, _keys)
-        emit('change', 'left', props.modelValue, _keys)
+        emit('change', _keys, 'left', rightSelectedKeysModelValue.value)
         rightSelectedKeysModelValue.value = []
     }
 
