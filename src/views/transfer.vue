@@ -36,7 +36,7 @@ import LeButton from "@/components/LeButton/src/index.vue";
 
 const generateData = () => {
   const data: TransferDataItem[] = [];
-  for (let i = 1; i <= 30; i++) {
+  for (let i = 1; i <= 10; i++) {
     data.push({
       key: `option-${i}`,
       label: `Option ${i}`,
@@ -57,7 +57,7 @@ function filterMethod(query: string, item: TransferDataItem) {
   return String(item.label).toLowerCase().includes(query.toLowerCase())
 }
 
-function handleChange(dir, oldValues, newValues) {
-  console.log('handleChange:', { dir, oldValues, newValues })
+function handleChange(currentKeys, dir, targetKeys) {
+  console.log('handleChange:', { currentKeys, dir, targetKeys })
 }
 </script>
