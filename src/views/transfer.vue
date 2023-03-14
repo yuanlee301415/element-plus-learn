@@ -29,10 +29,13 @@
 </template>
 
 <script lang="ts" setup>
-import type { TransferDataItem } from "@/components/LeTransfer/src/typing";
+import type {
+  TransferDataItem,
+  TransferKey,
+} from "@/components/LeTransfer/src/typing";
+
 import { ref, watch } from "vue";
-import LeTransfer from "@/components/LeTransfer";
-import LeButton from "@/components/LeButton/src/index.vue";
+import LeTransfer, { Direction } from "@/components/LeTransfer";
 
 const generateData = () => {
   const data: TransferDataItem[] = [];
@@ -62,7 +65,11 @@ function filterMethod(query: string, item: TransferDataItem) {
   return String(item.label).toLowerCase().includes(query.toLowerCase());
 }
 
-function handleChange(currentKeys, dir, targetKeys) {
+function handleChange(
+  currentKeys: TransferKey[],
+  dir: Direction,
+  targetKeys: TransferKey[]
+) {
   console.log("handleChange:", { currentKeys, dir, targetKeys });
 }
 </script>

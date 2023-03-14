@@ -40,7 +40,10 @@ export const transferEmit = {
     currentKeys: TransferKey[],
     dir: Direction,
     targetKeys: TransferKey[]
-  ) => [Direction.Left, Direction.Right].includes(dir),
+  ) =>
+    currentKeys &&
+    targetKeys &&
+    [Direction.Left, Direction.Right].includes(dir),
 };
 
 export type TransferEmit = typeof transferEmit;
