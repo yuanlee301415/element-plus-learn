@@ -43,7 +43,7 @@
           <input
             type="checkbox"
             :disabled="item.disabled"
-            :checked="keys?.includes(item.key)"
+            :checked="modelValue?.includes(item.key)"
             @change="change(item.key, $event)"
           />
           <span style="padding-left: 6px">
@@ -67,7 +67,7 @@ import { panelProps, panelEmit } from "./typing";
 import { usePanel } from "./usePanel";
 
 const props = defineProps(panelProps);
-// console.log('Panel>props:', props)
+console.log('Panel>props:', props)
 
 const emit = defineEmits(panelEmit);
 const { keys, isEmpty, change, selectedAll, changeAll, query, filteredItems } =

@@ -30,6 +30,14 @@ export const transferProps = {
     type: Array as PropType<string[]>,
     default: () => ["", ""],
   },
+  leftDefaultChecked: {
+    type: Array as PropType<TransferKey[]>,
+    default: () => []
+  },
+  rightDefaultChecked: {
+    type: Array as PropType<TransferKey[]>,
+    default: () => []
+  }
 };
 
 export type TransferProps = ExtractPropTypes<typeof transferProps>;

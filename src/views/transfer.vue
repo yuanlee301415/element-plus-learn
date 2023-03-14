@@ -9,11 +9,13 @@
         :button-texts="['ToLeft', 'ToRight']"
         :filter-method="filterMethod"
         filter-placeholder="Type keyword"
+        :left-default-checked="leftChecked"
+        :right-default-checked="rightChecked"
         filterable
         @change="handleChange"
       >
         <template #default="{ option }">
-          {{ option.idx + 1 }}-{{ option.label }}
+          {{ option.key }}-{{ option.label }}
         </template>
 
         <template #left-footer>
@@ -53,9 +55,12 @@ const data = ref<TransferDataItem[]>(generateData());
 const value = ref([
   data.value[0].key,
   data.value[1].key,
+  data.value[2].key,
   data.value[3].key,
-  data.value[7].key,
 ]);
+
+const leftChecked = ref([data.value[4].key, data.value[7].key])
+const rightChecked = ref([value.value[2], value.value[3]])
 
 watch(value, (val) => {
   console.log("Transfer>modelValue:", val);

@@ -62,7 +62,7 @@ import { transferProps, transferEmit } from "./typing";
 import { useTransfer } from "./useTransfer";
 
 const props = defineProps(transferProps);
-// console.log('Transfer>props:', props)
+console.log('Transfer>props:', props)
 
 const emit = defineEmits(transferEmit);
 const {

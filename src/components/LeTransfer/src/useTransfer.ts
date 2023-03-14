@@ -1,7 +1,7 @@
 import type { SetupContext } from "vue";
 import type { TransferKey, TransferProps, TransferEmit } from "./typing";
 
-import { computed, ref } from "vue";
+import {computed, ref, watchEffect} from "vue";
 import { UPDATE_MODEL_EVENT } from "@/constants/event";
 import { Direction } from "./typing";
 
@@ -28,6 +28,11 @@ export const useTransfer = (
 
   // 右侧面板选中项的 key
   const rightSelectedKeysModelValue = ref<TransferKey[]>([]);
+
+  watchEffect(() => {
+    leftSelectedKeysModelValue.value = props.leftDefaultChecked
+    rightSelectedKeysModelValue.value = props.rightDefaultChecked
+  })
 
   function toRight() {
     const _keys = props.modelValue.concat(leftSelectedKeysModelValue.value);
