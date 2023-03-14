@@ -40,17 +40,14 @@
 </template>
 
 <script setup lang="ts">
-import type {TransferKey} from "@/components/LeTransfer/src/typing";
-import {UPDATE_MODEL_EVENT} from "@/constants/event";
-import {panelProps, panelEmit} from "@/components/LeTransfer/src/typing";
-import {usePanel} from "@/components/LeTransfer/src/usePanel";
+import {panelProps, panelEmit} from "./typing";
+import {usePanel} from "./usePanel";
 
 const props = defineProps(panelProps)
-console.log('Panel>props:', props)
+// console.log('Panel>props:', props)
 
 const emit = defineEmits(panelEmit)
 const {keys, isEmpty, change, selectedAll, changeAll, query, filteredItems } = usePanel(props, emit)
-
 </script>
 
 <style scoped></style>

@@ -1,6 +1,11 @@
 import type {ExtractPropTypes, PropType} from "vue";
 import {UPDATE_MODEL_EVENT} from "@/constants/event";
 
+export const enum Direction {
+    Left = 'left',
+    Right = 'right'
+}
+
 export type TransferKey = string | number
 
 export type TransferDataItem = {
@@ -31,7 +36,7 @@ export type TransferProps = ExtractPropTypes<typeof transferProps>
 
 export const transferEmit = {
     [UPDATE_MODEL_EVENT]: (keys: TransferKey[]) => Array.isArray(keys),
-    change: (currentKeys, dir, targetKeys) => true
+    change: (currentKeys: TransferKey[], dir: Direction, targetKeys: TransferKey[]) => [Direction.Left, Direction.Right].includes(dir)
 }
 
 export type TransferEmit = typeof transferEmit

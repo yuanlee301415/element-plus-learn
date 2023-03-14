@@ -34,18 +34,15 @@
 </template>
 
 <script setup lang="ts">
-import type { TransferKey } from "@/components/LeTransfer/src/typing";
 import TransferPanel from "./transfer-panel.vue";
-import { transferProps, transferEmit } from "@/components/LeTransfer/src/typing";
-import {computed, ref, useSlots} from "vue";
-import { useTransfer } from "@/components/LeTransfer/src/useTransfer";
+import { transferProps, transferEmit } from "./typing";
+import { useTransfer } from "./useTransfer";
 
 const props = defineProps(transferProps)
-console.log('Transfer>props:', props)
+// console.log('Transfer>props:', props)
 
 const emit = defineEmits(transferEmit)
 const { leftItems, rightItems, leftSelectedKeysModelValue, rightSelectedKeysModelValue, toRight, toLeft } = useTransfer(props, emit)
-
 </script>
 
 <style>
