@@ -1,7 +1,7 @@
 import type { SetupContext } from "vue";
 import type { TransferKey, TransferProps, TransferEmit } from "./typing";
 
-import {computed, ref, watchEffect} from "vue";
+import { computed, ref, watchEffect } from "vue";
 import { UPDATE_MODEL_EVENT } from "@/constants/event";
 import { Direction } from "./typing";
 
@@ -30,9 +30,13 @@ export const useTransfer = (
   const rightSelectedKeysModelValue = ref<TransferKey[]>([]);
 
   watchEffect(() => {
-    leftSelectedKeysModelValue.value = props.leftDefaultChecked?.filter(key => !props.data?.find(item => item.key === key)?.disabled)
-    rightSelectedKeysModelValue.value = props.rightDefaultChecked?.filter(key => !props.data?.find(item => item.key === key)?.disabled)
-  })
+    leftSelectedKeysModelValue.value = props.leftDefaultChecked?.filter(
+      (key) => !props.data?.find((item) => item.key === key)?.disabled
+    );
+    rightSelectedKeysModelValue.value = props.rightDefaultChecked?.filter(
+      (key) => !props.data?.find((item) => item.key === key)?.disabled
+    );
+  });
 
   function toRight() {
     const _keys = props.modelValue.concat(leftSelectedKeysModelValue.value);

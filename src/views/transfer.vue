@@ -59,8 +59,8 @@ const value = ref([
   data.value[3].key,
 ]);
 
-const leftChecked = ref([data.value[4].key, data.value[7].key])
-const rightChecked = ref([value.value[2], value.value[3]])
+const leftChecked = ref([data.value[4].key, data.value[7].key]);
+const rightChecked = ref([value.value[2], value.value[3]]);
 
 watch(value, (val) => {
   console.log("Transfer>modelValue:", val);

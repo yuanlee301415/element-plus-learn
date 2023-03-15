@@ -1,9 +1,9 @@
 import type { ExtractPropTypes, PropType } from "vue";
 
 import { UPDATE_MODEL_EVENT } from "@/constants/event";
-import type TransferPanel from './transfer-panel.vue'
+import type TransferPanel from "./transfer-panel.vue";
 
-export type TransferPanelInstance = InstanceType<typeof TransferPanel>
+export type TransferPanelInstance = InstanceType<typeof TransferPanel>;
 
 export const enum Direction {
   Left = "left",
@@ -36,12 +36,12 @@ export const transferProps = {
   },
   leftDefaultChecked: {
     type: Array as PropType<TransferKey[]>,
-    default: () => []
+    default: () => [],
   },
   rightDefaultChecked: {
     type: Array as PropType<TransferKey[]>,
-    default: () => []
-  }
+    default: () => [],
+  },
 };
 
 export type TransferProps = ExtractPropTypes<typeof transferProps>;

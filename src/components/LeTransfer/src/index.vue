@@ -1,7 +1,7 @@
 <template>
   <div class="transfer">
     <TransferPanel
-        ref="leftPanelRef"
+      ref="leftPanelRef"
       v-model="leftSelectedKeysModelValue"
       :items="leftItems"
       :title="titles[0]"
@@ -62,15 +62,15 @@
 </template>
 
 <script setup lang="ts">
-import type { TransferPanelInstance} from "./typing";
+import type { TransferPanelInstance } from "./typing";
 
-import {ref} from "vue";
+import { ref } from "vue";
 import TransferPanel from "./transfer-panel.vue";
 import { transferProps, transferEmit } from "./typing";
 import { useTransfer } from "./useTransfer";
 
 const props = defineProps(transferProps);
-console.log('Transfer>props:', props)
+console.log("Transfer>props:", props);
 
 const emit = defineEmits(transferEmit);
 const {
@@ -82,8 +82,8 @@ const {
   toLeft,
 } = useTransfer(props, emit);
 
-const leftPanelRef = ref<TransferPanelInstance>(null)
-const rightPanelRef = ref<TransferPanelInstance>(null)
+const leftPanelRef = ref<TransferPanelInstance>(null);
+const rightPanelRef = ref<TransferPanelInstance>(null);
 </script>
 
 <style>

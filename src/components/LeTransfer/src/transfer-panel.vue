@@ -67,15 +67,15 @@ import { panelProps, panelEmit } from "./typing";
 import { usePanel } from "./usePanel";
 
 const props = defineProps(panelProps);
-console.log('Panel>props:', props)
+console.log("Panel>props:", props);
 
 const emit = defineEmits(panelEmit);
 const { keys, isEmpty, change, selectedAll, changeAll, query, filteredItems } =
   usePanel(props, emit);
 
 defineExpose({
-  keys
-})
+  keys,
+});
 </script>
 
 <style scoped></style>
