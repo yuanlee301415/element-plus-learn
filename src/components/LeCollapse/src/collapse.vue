@@ -21,5 +21,5 @@ defineExpose({
 </script>
 
 <style>
-@import "@/components/LeCollapse/src/style.css";
+@import "style.css";
 </style>

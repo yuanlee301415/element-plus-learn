@@ -40,5 +40,3 @@
     </dd>
   </dl>
 </template>
-
-<script lang="ts" setup></script>

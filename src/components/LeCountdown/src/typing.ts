@@ -1,4 +1,5 @@
 import type { ExtractPropTypes, PropType, StyleValue } from "vue";
+import type CountDown from "./index.vue";
 
 export const countdownProps = {
   value: {
@@ -18,3 +19,4 @@ export const countdownEmit = {
 
 export type CountdownProps = ExtractPropTypes<typeof countdownProps>;
 export type CountdownEmit = typeof countdownEmit;
+export type CountDownInstance = InstanceType<typeof CountDown>;

@@ -1,4 +1,6 @@
 import type { ExtractPropTypes, PropType } from "vue";
+import type Calendar from "./index.vue";
+
 import { UPDATE_MODEL_EVENT } from "@/constants/event";
 
 export type CalendarValue = Date | string | number;
@@ -51,3 +53,5 @@ export const calendarCellDateProps = {
 export const calendarCellDateEmit = {
   [CALENDAR_CHOOSE_EVENT]: (value: Date) => !!new Date(value).getTime(),
 };
+
+export type CalendarInstance = InstanceType<typeof Calendar>;
