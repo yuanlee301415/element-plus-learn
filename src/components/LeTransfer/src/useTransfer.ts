@@ -30,8 +30,8 @@ export const useTransfer = (
   const rightSelectedKeysModelValue = ref<TransferKey[]>([]);
 
   watchEffect(() => {
-    leftSelectedKeysModelValue.value = props.leftDefaultChecked
-    rightSelectedKeysModelValue.value = props.rightDefaultChecked
+    leftSelectedKeysModelValue.value = props.leftDefaultChecked?.filter(key => !props.data?.find(item => item.key === key)?.disabled)
+    rightSelectedKeysModelValue.value = props.rightDefaultChecked?.filter(key => !props.data?.find(item => item.key === key)?.disabled)
   })
 
   function toRight() {
