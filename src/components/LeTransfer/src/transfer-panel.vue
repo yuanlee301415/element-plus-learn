@@ -72,6 +72,10 @@ console.log('Panel>props:', props)
 const emit = defineEmits(panelEmit);
 const { keys, isEmpty, change, selectedAll, changeAll, query, filteredItems } =
   usePanel(props, emit);
+
+defineExpose({
+  keys
+})
 </script>
 
 <style scoped></style>

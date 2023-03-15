@@ -216,3 +216,9 @@
     width: 3px;
     left: 4px
 }
+
+
+.transfer-panel__item.is-disabled, .transfer-panel__item.is-disabled:hover {
+    color: var(--disabled-text-color);
+    cursor: not-allowed;
+}

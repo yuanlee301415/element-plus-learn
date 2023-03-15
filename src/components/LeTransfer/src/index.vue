@@ -1,6 +1,7 @@
 <template>
   <div class="transfer">
     <TransferPanel
+        ref="leftPanelRef"
       v-model="leftSelectedKeysModelValue"
       :items="leftItems"
       :title="titles[0]"
@@ -18,6 +19,7 @@
     <div class="transfer__buttons">
       <LeButton
         :class="{ 'is-with-texts': buttonTexts[0] }"
+        :disabled="!rightPanelRef?.keys?.length"
         type="primary"
         class="transfer__button"
         @click="toLeft"
@@ -26,10 +28,12 @@
           >&lt;<span>{{ buttonTexts[0] }}</span></span
         >
       </LeButton>
+
       <LeButton
         :class="{ 'is-with-texts': buttonTexts[1] }"
         type="primary"
         class="transfer__button"
+        :disabled="!leftPanelRef?.keys?.length"
         @click="toRight"
       >
         <span
@@ -41,6 +45,7 @@
 
     <TransferPanel
       v-model="rightSelectedKeysModelValue"
+      ref="rightPanelRef"
       :items="rightItems"
       :title="titles[1]"
       v-bind="$attrs"
@@ -57,6 +62,9 @@
 </template>
 
 <script setup lang="ts">
+import type { TransferPanelInstance} from "./typing";
+
+import {ref} from "vue";
 import TransferPanel from "./transfer-panel.vue";
 import { transferProps, transferEmit } from "./typing";
 import { useTransfer } from "./useTransfer";
@@ -73,6 +81,9 @@ const {
   toRight,
   toLeft,
 } = useTransfer(props, emit);
+
+const leftPanelRef = ref<TransferPanelInstance>(null)
+const rightPanelRef = ref<TransferPanelInstance>(null)
 </script>
 
 <style>

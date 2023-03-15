@@ -1,5 +1,9 @@
 import type { ExtractPropTypes, PropType } from "vue";
+
 import { UPDATE_MODEL_EVENT } from "@/constants/event";
+import type TransferPanel from './transfer-panel.vue'
+
+export type TransferPanelInstance = InstanceType<typeof TransferPanel>
 
 export const enum Direction {
   Left = "left",
