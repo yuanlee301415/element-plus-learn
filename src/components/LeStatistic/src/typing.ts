@@ -1,6 +1,5 @@
-// statistic
-
 import type { ExtractPropTypes, PropType, StyleValue } from "vue";
+import type Statistic from "./index.vue";
 
 export const statisticProps = {
   value: {
@@ -23,3 +22,4 @@ export const statisticProps = {
 };
 
 export type StatisticProps = ExtractPropTypes<typeof statisticProps>;
+export type StatisticInstance = InstanceType<typeof Statistic>;

@@ -1,4 +1,6 @@
 import type { PropType, ExtractPropTypes } from "vue";
+import type Collapse from "./collapse.vue";
+import type CollapseItem from "./collapse-item.vue";
 
 import { UPDATE_MODEL_EVENT, CHANGE_EVENT } from "@/constants/event";
 import { generateId } from "@/utils";
@@ -41,3 +43,6 @@ export const collapseItemProps = {
 } as const;
 
 export type CollapseItemProps = ExtractPropTypes<typeof collapseItemProps>;
+
+export type CollapseInstance = InstanceType<typeof Collapse>;
+export type CollapseItemInstance = InstanceType<typeof CollapseItem>;

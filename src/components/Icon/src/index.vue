@@ -8,14 +8,9 @@
 
 <script lang="ts" setup>
 import { computed } from "vue";
+import { iconProps } from "./typing";
 
-export interface Props {
-  name: string;
-  color?: string;
-  size?: string | number;
-}
-
-const props = defineProps<Props>();
+const props = defineProps(iconProps);
 const style = computed(() => ({
   "--color": props.color,
   "font-size": props.size && `${props.size}px`,
