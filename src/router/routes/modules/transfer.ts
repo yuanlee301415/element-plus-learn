@@ -7,7 +7,7 @@ const TRANSFER_ROUTE: AppRouteRecordRaw = {
   redirect: "/transfer",
   component: LAYOUT,
   meta: {
-    title: "穿梭框",
+    title: "Transfer 穿梭框",
     hiddenChildrenInMenu: true,
   },
   children: [
