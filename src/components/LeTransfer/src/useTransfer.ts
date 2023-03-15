@@ -1,5 +1,10 @@
 import type { SetupContext } from "vue";
-import type { TransferKey, TransferProps, TransferEmit } from "./typing";
+import type {
+  TransferKey,
+  TransferProps,
+  TransferEmit,
+  TransferDataItem,
+} from "./typing";
 
 import { computed, ref, watchEffect } from "vue";
 import { UPDATE_MODEL_EVENT } from "@/constants/event";
@@ -10,14 +15,14 @@ export const useTransfer = (
   emit: SetupContext<TransferEmit>["emit"]
 ) => {
   // 数组中的各项 key 不包含在父组件的 modelValue 中
-  const leftItems = computed(() => {
+  const leftItems = computed<TransferDataItem[]>(() => {
     return (
       props.data?.filter((item) => !props.modelValue?.includes(item.key)) ?? []
     );
   });
 
   // 数组中的各项 key 包含在父组件的 modelValue 中
-  const rightItems = computed(() => {
+  const rightItems = computed<TransferDataItem[]>(() => {
     return (
       props.data?.filter((item) => props.modelValue?.includes(item.key)) ?? []
     );

@@ -11,7 +11,7 @@
         </span>
         <span class="checkbox__label">
           {{ title }}
-          <span>{{ keys.length }}/{{ items.length }}</span>
+          <span>{{ keys.length }}/{{ items?.length }}</span>
         </span>
       </label>
     </div>

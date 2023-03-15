@@ -8,7 +8,7 @@ export const usePanel = (
   props: PanelProps,
   emit: SetupContext<PanelEmit>["emit"]
 ) => {
-  const keys = ref<TransferKey[]>();
+  const keys = ref<TransferKey[]>([]);
   const selectedAll = ref(false);
   const query = ref("");
   const isEmpty = computed(() => !(props.items && props.items.length));
@@ -20,21 +20,21 @@ export const usePanel = (
   );
 
   watchEffect(() => {
-    keys.value = props.modelValue;
+    keys.value = props.modelValue ?? [];
     selectedAll.value = !!props.modelValue?.length;
   });
 
   function change(key: TransferKey, event: Event): void {
     const { checked } = event.target as HTMLInputElement;
-    const idx = keys.value?.indexOf(key);
+    const idx = keys.value.indexOf(key);
 
     if (checked && idx === -1) {
-      keys.value = [...keys.value!, key];
+      keys.value = [...keys.value, key];
     } else if (!checked && idx !== -1) {
-      keys.value = keys.value!.filter((_, index) => index !== idx);
+      keys.value = keys.value.filter((_, index) => index !== idx);
     }
 
-    emit(UPDATE_MODEL_EVENT, keys.value!);
+    emit(UPDATE_MODEL_EVENT, keys.value);
   }
 
   function changeAll(event: Event) {
@@ -48,8 +48,8 @@ export const usePanel = (
       keys.value = [];
     }
 
-    selectedAll.value = !!keys.value?.length;
-    emit(UPDATE_MODEL_EVENT, keys.value!);
+    selectedAll.value = !!keys.value.length;
+    emit(UPDATE_MODEL_EVENT, keys.value);
   }
 
   return {

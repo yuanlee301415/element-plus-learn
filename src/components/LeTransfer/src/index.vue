@@ -82,8 +82,8 @@ const {
   toLeft,
 } = useTransfer(props, emit);
 
-const leftPanelRef = ref<TransferPanelInstance>(null);
-const rightPanelRef = ref<TransferPanelInstance>(null);
+const leftPanelRef = ref<TransferPanelInstance>();
+const rightPanelRef = ref<TransferPanelInstance>();
 </script>
 
 <style>

@@ -65,7 +65,10 @@ export const panelProps = {
     type: Array as PropType<TransferKey[]>,
     default: () => [],
   },
-  items: Array as PropType<TransferDataItem[]>,
+  items: {
+    type: Array as PropType<TransferDataItem[]>,
+    default: () => [],
+  },
   title: String,
   filterable: Boolean,
   filterPlaceholder: {
