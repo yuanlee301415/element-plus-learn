@@ -2,7 +2,9 @@
   <dl class="demo">
     <dt>Basic</dt>
     <dd>
-      <LeButton @click="handleBasicSetActiveNames">setActiveNames(['news', 'about'])</LeButton>
+      <LeButton @click="handleBasicSetActiveNames"
+        >setActiveNames(['news', 'about'])</LeButton
+      >
       <LeCollapse ref="basieRef" v-model="basicNames" @change="handleChange">
         <LeCollapseItem title="Home" name="home">
           <template #title>自定义 Title&nbsp;<Icon name="star" /></template>
@@ -39,8 +41,15 @@
   <dl class="demo">
     <dt>手风琴模式</dt>
     <dd>
-      <LeButton @click="handleAccordionSetActiveNames">setActiveNames(['news', 'home'])</LeButton>
-      <LeCollapse ref="accordionRef" v-model="accordionName" accordion @change="handleChange">
+      <LeButton @click="handleAccordionSetActiveNames"
+        >setActiveNames(['news', 'home'])</LeButton
+      >
+      <LeCollapse
+        ref="accordionRef"
+        v-model="accordionName"
+        accordion
+        @change="handleChange"
+      >
         <LeCollapseItem title="Home" name="home">
           <ol>
             <li>Home content.</li>
@@ -124,17 +133,16 @@ setTimeout(() => {
   }, 2000);
 }, 2000);
 
-
 /**
  * 调用组件暴露的方法
  */
-const basieRef = ref<CollapseInstance>()
+const basieRef = ref<CollapseInstance>();
 function handleBasicSetActiveNames() {
-  basieRef.value?.setActiveNames(['news', 'about'])
+  basieRef.value?.setActiveNames(["news", "about"]);
 }
 
-const accordionRef = ref<CollapseInstance>()
+const accordionRef = ref<CollapseInstance>();
 function handleAccordionSetActiveNames() {
-  accordionRef.value?.setActiveNames(['home', 'news'])
+  accordionRef.value?.setActiveNames(["home", "news"]);
 }
 </script>
