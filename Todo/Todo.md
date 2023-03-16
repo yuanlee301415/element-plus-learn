@@ -1,4 +1,2 @@
 - [ ] Tree
-- [ ] 添加各组件的 `defineExpose`,参照官方文档
 - [ ] TS ：必填的 + 有默认值的组件属性，在 TS 中，类型自动联合 `undefined`
-- [ ] 构建时，`::v-deep` 警告

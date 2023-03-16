@@ -47,16 +47,16 @@ import {
 </script>
 
 <style scoped>
-:deep .le-header,
-:deep .le-footer {
+:deep(.le-header),
+:deep(.le-footer) {
   background-color: #c6e2ff;
   border: 1px solid #969;
 }
-:deep .le-aside {
+:deep(.le-aside) {
   background-color: #d9ecff;
   border: 1px solid #969;
 }
-:deep .le-main {
+:deep(.le-main) {
   background-color: #ecf5ff;
   border: 1px solid #969;
 }
