@@ -1,5 +1,5 @@
 <template>
-  <button :class="cls" :disabled="disabled" class="button" @click="handleClick">
+  <button ref="_ref" :class="cls" :disabled="_disabled" class="button" @click="handleClick">
     <slot />
   </button>
 </template>
@@ -16,21 +16,22 @@ import {useButton} from "@/components/LeButton/src/useButton";
 
 const props = defineProps(buttonProps);
 const emit = defineEmits(buttonEmit);
-const {_size, _type, handleClick } = useButton(props, emit)
+const {_size, _type, _disabled, _ref, handleClick } = useButton(props, emit)
 
 const cls = computed(() => ({
   [`button--${_type.value}`]: _type.value,
   [`button--${_size.value}`]: _size.value,
+  [`is-disabled`]: _disabled.value,
   [`is-plain`]: props.plain,
   [`is-round`]: props.round,
-  [`is-disabled`]: props.disabled,
 }));
 
 
 defineExpose({
-  ref: undefined,
+  ref: _ref,
   type: _type,
-  size: _size
+  size: _size,
+  disabled: _disabled,
 })
 </script>
 

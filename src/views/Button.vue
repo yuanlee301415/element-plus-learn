@@ -4,7 +4,7 @@
     <dd>
       <LeButton>Default</LeButton>
       <LeButton ref="typeBtnRef" type="primary">Primary</LeButton>
-      <LeButton type="success">Success</LeButton>
+      <LeButton ref="_refRef" type="success">Success</LeButton>
       <LeButton type="info">Info</LeButton>
       <LeButton type="warning">Warning</LeButton>
       <LeButton type="danger">Danger</LeButton>
@@ -47,7 +47,7 @@
   <dl class="demo">
     <dt>Disabled</dt>
     <dd>
-      <LeButton disabled>Default</LeButton>
+      <LeButton ref="disBtnRef" disabled>Default</LeButton>
       <LeButton type="primary" disabled>Primary</LeButton>
       <LeButton type="success" disabled>Success</LeButton>
       <LeButton type="info" disabled>Info</LeButton>
@@ -134,9 +134,9 @@ import LeButtonGroup from "@/components/LeButtonGroup";
 const type = ref<ButtonType>("primary");
 const size = ref<ButtonSize>("small");
 
-const handleClickA = () => console.log("ClickA!");
-const handleClickB = () => console.log("ClickB!");
-const handleClickC = () => console.log("ClickC!");
+const handleClickA = (e: Event) => console.log("ClickA>evt:", e);
+const handleClickB = (e: Event) => console.log("ClickB>evt:", e);
+const handleClickC = (e: Event) => console.log("ClickC>evt:", e);
 
 const typeBtnRef = ref<ButtonInstance>()
 const sizeBtnRef = ref<ButtonInstance>()
@@ -144,7 +144,15 @@ const sizeBtnRef = ref<ButtonInstance>()
 const groupTypeBtnRef = ref<ButtonInstance>()
 const groupSizeBtnRef = ref<ButtonInstance>()
 
+const _refRef = ref<ButtonInstance>()
+const disBtnRef = ref<ButtonInstance>()
+
 onMounted(() => {
+  console.log('onMounted>ref:', _refRef.value.ref)
+  _refRef.value.ref.disabled = true
+
+  console.log('onMounted>disabled:', disBtnRef.value.disabled)
+
   console.log('onMounted>type:', typeBtnRef.value.type)
   console.log('onMounted>size:', sizeBtnRef.value.size)
 
