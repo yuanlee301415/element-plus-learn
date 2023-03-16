@@ -3,7 +3,7 @@
     <dt>Type</dt>
     <dd>
       <LeButton>Default</LeButton>
-      <LeButton type="primary">Primary</LeButton>
+      <LeButton ref="typeBtnRef" type="primary">Primary</LeButton>
       <LeButton type="success">Success</LeButton>
       <LeButton type="info">Info</LeButton>
       <LeButton type="warning">Warning</LeButton>
@@ -15,7 +15,7 @@
     <dt>Size</dt>
     <dd>
       <LeButton>Default</LeButton>
-      <LeButton size="small">Small</LeButton>
+      <LeButton ref="sizeBtnRef" size="small">Small</LeButton>
       <LeButton size="large">Large</LeButton>
     </dd>
   </dl>
@@ -86,12 +86,12 @@
 
     <dd>
       <LeButtonGroup :type="type">
-        <LeButton>Add</LeButton>
+        <LeButton ref="groupTypeBtnRef">Add</LeButton>
         <LeButton>Edit</LeButton>
         <LeButton type="danger">Delete</LeButton>
       </LeButtonGroup>
 
-      <select v-model="type">
+      <select v-model="type" @change="onChangeType">
         <option value="">--Change type--</option>
         <option value="primary">Primary</option>
         <option value="success">Success</option>
@@ -100,12 +100,12 @@
 
     <dd>
       <LeButtonGroup :size="size">
-        <LeButton>Add</LeButton>
+        <LeButton ref="groupSizeBtnRef">Add</LeButton>
         <LeButton>Edit</LeButton>
         <LeButton>Delete</LeButton>
       </LeButtonGroup>
 
-      <select v-model="size">
+      <select v-model="size" @change="onChangeSize">
         <option value="">--Change size--</option>
         <option value="small">Small</option>
         <option value="large">Large</option>
@@ -124,17 +124,43 @@
 </template>
 
 <script lang="ts" setup>
-import type { ButtonType, ButtonSize } from "@/components/LeButton";
+import type { ButtonType, ButtonSize, ButtonInstance } from "@/components/LeButton";
 
-import { ref } from "vue";
+import {nextTick, onMounted, ref} from "vue";
 
 import LeButton from "@/components/LeButton";
 import LeButtonGroup from "@/components/LeButtonGroup";
 
-const type = ref<ButtonType>("");
-const size = ref<ButtonSize>("");
+const type = ref<ButtonType>("primary");
+const size = ref<ButtonSize>("small");
 
 const handleClickA = () => console.log("ClickA!");
 const handleClickB = () => console.log("ClickB!");
 const handleClickC = () => console.log("ClickC!");
+
+const typeBtnRef = ref<ButtonInstance>()
+const sizeBtnRef = ref<ButtonInstance>()
+
+const groupTypeBtnRef = ref<ButtonInstance>()
+const groupSizeBtnRef = ref<ButtonInstance>()
+
+onMounted(() => {
+  console.log('onMounted>type:', typeBtnRef.value.type)
+  console.log('onMounted>size:', sizeBtnRef.value.size)
+
+  console.log('onMounted>group type:', groupTypeBtnRef.value.type)
+  console.log('onMounted>group size:', groupSizeBtnRef.value.size)
+})
+
+function onChangeType() {
+  nextTick(() => {
+    console.log('onChangeType>group type:', groupTypeBtnRef.value.type)
+  })
+}
+
+function onChangeSize() {
+  nextTick(() => {
+    console.log('onChangeSize>group size:', groupSizeBtnRef.value.size)
+  })
+}
 </script>

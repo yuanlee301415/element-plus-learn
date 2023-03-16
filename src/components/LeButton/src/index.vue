@@ -5,41 +5,18 @@
 </template>
 
 <script lang="ts" setup>
-import type { ButtonType, ButtonSize } from "./typing";
+import type { ButtonType, ButtonSize, ButtonProps } from "./typing";
 
 import { computed, inject, defineEmits } from "vue";
-
 import { buttonGroupContextKey } from "@/tokens/button";
+import { buttonProps, buttonEmit } from "./typing";
 
-export interface Props {
-  /*按钮主题颜色*/
-  type?: ButtonType;
+import {useButton} from "@/components/LeButton/src/useButton";
 
-  /*按钮尺寸*/
-  size?: ButtonSize;
 
-  /*是否为朴素按钮*/
-  plain?: boolean;
-
-  /*是否为圆角*/
-  round?: boolean;
-
-  /*是否禁用*/
-  disabled?: boolean;
-}
-
-const props = defineProps<Props>();
-
-const emit = defineEmits(["click"]);
-
-const buttonGroupCtx: Props | void = inject(buttonGroupContextKey, {
-  type: "",
-  size: "",
-});
-
-const _type = computed(() => props.type || buttonGroupCtx?.type);
-
-const _size = computed(() => props.size || buttonGroupCtx?.size);
+const props = defineProps(buttonProps);
+const emit = defineEmits(buttonEmit);
+const {_size, _type, handleClick } = useButton(props, emit)
 
 const cls = computed(() => ({
   [`button--${_type.value}`]: _type.value,
@@ -49,7 +26,12 @@ const cls = computed(() => ({
   [`is-disabled`]: props.disabled,
 }));
 
-const handleClick = (e: Event) => emit("click", e);
+
+defineExpose({
+  ref: undefined,
+  type: _type,
+  size: _size
+})
 </script>
 
 <style>
