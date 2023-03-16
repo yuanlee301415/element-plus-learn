@@ -124,9 +124,13 @@
 </template>
 
 <script lang="ts" setup>
-import type { ButtonType, ButtonSize, ButtonInstance } from "@/components/LeButton";
+import type {
+  ButtonType,
+  ButtonSize,
+  ButtonInstance,
+} from "@/components/LeButton";
 
-import {nextTick, onMounted, ref} from "vue";
+import { nextTick, onMounted, ref } from "vue";
 
 import LeButton from "@/components/LeButton";
 import LeButtonGroup from "@/components/LeButtonGroup";
@@ -138,37 +142,37 @@ const handleClickA = (e: Event) => console.log("ClickA>evt:", e);
 const handleClickB = (e: Event) => console.log("ClickB>evt:", e);
 const handleClickC = (e: Event) => console.log("ClickC>evt:", e);
 
-const typeBtnRef = ref<ButtonInstance>()
-const sizeBtnRef = ref<ButtonInstance>()
+const typeBtnRef = ref<ButtonInstance>();
+const sizeBtnRef = ref<ButtonInstance>();
 
-const groupTypeBtnRef = ref<ButtonInstance>()
-const groupSizeBtnRef = ref<ButtonInstance>()
+const groupTypeBtnRef = ref<ButtonInstance>();
+const groupSizeBtnRef = ref<ButtonInstance>();
 
-const _refRef = ref<ButtonInstance>()
-const disBtnRef = ref<ButtonInstance>()
+const _refRef = ref<ButtonInstance>();
+const disBtnRef = ref<ButtonInstance>();
 
 onMounted(() => {
-  console.log('onMounted>ref:', _refRef.value.ref)
-  _refRef.value.ref.disabled = true
+  console.log("onMounted>ref:", _refRef.value!.ref);
+  _refRef.value!.ref!.disabled = true;
 
-  console.log('onMounted>disabled:', disBtnRef.value.disabled)
+  console.log("onMounted>disabled:", disBtnRef.value!.disabled);
 
-  console.log('onMounted>type:', typeBtnRef.value.type)
-  console.log('onMounted>size:', sizeBtnRef.value.size)
+  console.log("onMounted>type:", typeBtnRef.value!.type);
+  console.log("onMounted>size:", sizeBtnRef.value!.size);
 
-  console.log('onMounted>group type:', groupTypeBtnRef.value.type)
-  console.log('onMounted>group size:', groupSizeBtnRef.value.size)
-})
+  console.log("onMounted>group type:", groupTypeBtnRef.value!.type);
+  console.log("onMounted>group size:", groupSizeBtnRef.value!.size);
+});
 
 function onChangeType() {
   nextTick(() => {
-    console.log('onChangeType>group type:', groupTypeBtnRef.value.type)
-  })
+    console.log("onChangeType>group type:", groupTypeBtnRef.value!.type);
+  });
 }
 
 function onChangeSize() {
   nextTick(() => {
-    console.log('onChangeSize>group size:', groupSizeBtnRef.value.size)
-  })
+    console.log("onChangeSize>group size:", groupSizeBtnRef.value!.size);
+  });
 }
 </script>
