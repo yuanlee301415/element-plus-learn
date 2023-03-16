@@ -2,7 +2,8 @@
   <dl class="demo">
     <dt>Basic</dt>
     <dd>
-      <LeCollapse v-model="names" @change="handleChange">
+      <LeButton @click="handleBasicSetActiveNames">setActiveNames(['news', 'about'])</LeButton>
+      <LeCollapse ref="basieRef" v-model="basicNames" @change="handleChange">
         <LeCollapseItem title="Home" name="home">
           <template #title>自定义 Title&nbsp;<Icon name="star" /></template>
           <ol>
@@ -38,7 +39,8 @@
   <dl class="demo">
     <dt>手风琴模式</dt>
     <dd>
-      <LeCollapse v-model="name" accordion @change="handleChange">
+      <LeButton @click="handleAccordionSetActiveNames">setActiveNames(['news', 'home'])</LeButton>
+      <LeCollapse ref="accordionRef" v-model="accordionName" accordion @change="handleChange">
         <LeCollapseItem title="Home" name="home">
           <ol>
             <li>Home content.</li>
@@ -73,7 +75,7 @@
   <dl class="demo">
     <dt>Dyna</dt>
     <dd>
-      <LeCollapse v-model="names2" @change="handleChange">
+      <LeCollapse v-model="dynaNames" @change="handleChange">
         <LeCollapseItem
           v-for="item of items"
           :key="item.name"
@@ -92,13 +94,13 @@
 </template>
 
 <script lang="ts" setup>
+import type { CollapseInstance } from "@/components/LeCollapse";
 import { ref } from "vue";
-
 import { LeCollapse, LeCollapseItem } from "@/components/LeCollapse";
 
-const names = ref(["home"]);
+const basicNames = ref(["home"]);
 
-const name = ref("disabled");
+const accordionName = ref("disabled");
 
 function handleChange() {
   console.log("handleChange>args:", arguments);
@@ -110,11 +112,29 @@ const items = ref([
   { title: "About", name: "about" },
   { title: "Disabled", name: "disabled", disabled: true },
 ]);
-const names2 = ref(["home"]);
+
+/**
+ * 动态更新
+ */
+const dynaNames = ref(["home"]);
 setTimeout(() => {
-  names2.value = ["about"];
+  dynaNames.value = ["about"];
   setTimeout(() => {
-    names2.value[1] = "news";
+    dynaNames.value[1] = "news";
   }, 2000);
 }, 2000);
+
+
+/**
+ * 调用组件暴露的方法
+ */
+const basieRef = ref<CollapseInstance>()
+function handleBasicSetActiveNames() {
+  basieRef.value?.setActiveNames(['news', 'about'])
+}
+
+const accordionRef = ref<CollapseInstance>()
+function handleAccordionSetActiveNames() {
+  accordionRef.value?.setActiveNames(['home', 'news'])
+}
 </script>
