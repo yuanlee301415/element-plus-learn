@@ -27,6 +27,14 @@ const TEST_ROUTE: AppRouteRecordRaw = {
         title: "TestB",
       },
     },
+    {
+      path: "test-expose",
+      name: "TestExpose",
+      component: () => import("@/views/test/TestExpose.vue"),
+      meta: {
+        title: "TestExpose",
+      },
+    },
   ],
 };
 
