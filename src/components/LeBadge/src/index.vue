@@ -37,6 +37,10 @@ const content = computed(() => {
 
   return props.value;
 });
+
+defineExpose({
+  content,
+});
 </script>
 
 <style>

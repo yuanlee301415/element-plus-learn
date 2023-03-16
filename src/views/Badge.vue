@@ -2,7 +2,7 @@
   <dl class="demo">
     <dt>Basic</dt>
     <dd>
-      <LeBadge value="10">
+      <LeBadge ref="contentRef" value="5">
         <LeButton>Comments</LeButton>
       </LeBadge>
     </dd>
@@ -40,7 +40,7 @@
         <LeButton>Comments</LeButton>
       </LeBadge>
 
-      <LeBadge value="Hot">
+      <LeBadge ref="contentRef2" value="Hot">
         <LeButton>Comments</LeButton>
       </LeBadge>
     </dd>
@@ -68,7 +68,7 @@
     <dd>
       <LeBadge value="100" max="99" is-dot> News </LeBadge>
 
-      <LeBadge value="new" max="99" is-dot>
+      <LeBadge ref="contentRef3" value="new" max="99" is-dot>
         <LeButton>Comments</LeButton>
       </LeBadge>
     </dd>
@@ -76,6 +76,18 @@
 </template>
 
 <script lang="ts" setup>
+import type { BadgeInstance } from "@/components/LeBadge";
+
+import { onMounted, ref } from "vue";
 import LeBadge from "@/components/LeBadge";
-import LeButton from "@/components/LeButton";
+
+const contentRef = ref<BadgeInstance>();
+const contentRef2 = ref<BadgeInstance>();
+const contentRef3 = ref<BadgeInstance>();
+
+onMounted(() => {
+  console.log("ref>content:", contentRef.value?.content);
+  console.log("ref>content 2:", contentRef2.value?.content);
+  console.log("ref>content 3:", contentRef3.value?.content);
+});
 </script>
