@@ -18,9 +18,9 @@ export const useCollapse = (
 
   function setActiveNames(_activeNames: CollapseActiveName[]) {
     const value = props.accordion ? _activeNames[0] : _activeNames;
+    activeNames.value = _activeNames;
     emit(UPDATE_MODEL_EVENT, value);
     emit(CHANGE_EVENT, value);
-    activeNames.value = _activeNames;
   }
 
   function handleItemClick(name: CollapseActiveName) {
