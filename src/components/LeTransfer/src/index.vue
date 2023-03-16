@@ -84,6 +84,11 @@ const {
 
 const leftPanelRef = ref<TransferPanelInstance>();
 const rightPanelRef = ref<TransferPanelInstance>();
+
+defineExpose({
+  leftPanel: leftPanelRef,
+  rightPanel: rightPanelRef,
+});
 </script>
 
 <style>
