@@ -11,8 +11,8 @@ export const useButton = (props: ButtonProps, emit: SetupContext<ButtonEmit>['em
     });
     console.log('buttonGroupCtx:', buttonGroupCtx)
 
-    const _type = computed(() => props.type || buttonGroupCtx?.type);
-    const _size = computed(() => props.size || buttonGroupCtx?.size);
+    const _type = computed(() => props.type || buttonGroupCtx.type);
+    const _size = computed(() => props.size || buttonGroupCtx.size);
 
     const handleClick = (e: Event) => emit("click", e);
 
