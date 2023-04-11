@@ -7,7 +7,7 @@ const TABS_ROUTE: AppRouteRecordRaw = {
   redirect: "/tabs",
   component: LAYOUT,
   meta: {
-    title: "标签页",
+    title: "Tabs 标签页",
     hiddenChildrenInMenu: true,
   },
   children: [
@@ -15,9 +15,7 @@ const TABS_ROUTE: AppRouteRecordRaw = {
       path: "",
       name: "TabsPage",
       component: () => import("@/views/tabs.vue"),
-      meta: {
-        title: "标签页",
-      },
+      meta: {},
     },
   ],
 };
