@@ -1,0 +1,25 @@
+.check-tag {
+    background-color: var(--color-info-light-9);
+    border-radius: var(--border-radius-base);
+    color: var(--color-info);
+    cursor: pointer;
+    display: inline-block;
+    font-size: var(--font-size-base);
+    line-height: var(--font-size-base);
+    padding: 7px 15px;
+    transition: var(--transition-all);
+    font-weight: 700
+}
+
+.check-tag:hover {
+    background-color: var(--color-info-light-7)
+}
+
+.check-tag.is-checked {
+    background-color: var(--color-primary-light-8);
+    color: var(--color-primary)
+}
+
+.check-tag.is-checked:hover {
+    background-color: var(--color-primary-light-7)
+}
