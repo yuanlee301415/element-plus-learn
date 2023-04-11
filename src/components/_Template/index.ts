@@ -1,5 +1,5 @@
 import Temp from "./src/index.vue";
 
-export * from "./src/typing";
-
+export type TempInstance = InstanceType<typeof Temp>;
+export * from "./src/temp";
 export default Temp;

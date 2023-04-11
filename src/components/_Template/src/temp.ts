@@ -1,5 +1,4 @@
 import type { ExtractPropTypes } from "vue";
-import type Temp from "./index.vue";
 
 import { UPDATE_MODEL_EVENT } from "@/constants/event";
 
@@ -11,5 +10,3 @@ export const tempEmit = {
 };
 
 export type TempEmit = typeof tempEmit;
-
-export type TempInstance = InstanceType<typeof Temp>;
