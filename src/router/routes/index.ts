@@ -17,6 +17,7 @@ import STATISTIC_ROUTE from "@/router/routes/modules/statistic";
 import AVATAR_ROUTE from "@/router/routes/modules/avatar";
 import TABS_ROUTE from "@/router/routes/modules/tabs";
 import PAGINATION_ROUTE from "@/router/routes/modules/pagination";
+import EMPTY_ROUTE from "@/router/routes/modules/empty";
 // import NESTED_ROUTE from "@/router/routes/modules/nested";
 
 export const ROOT_ROUTE: AppRouteRecordRaw = {
@@ -85,6 +86,7 @@ export const basicRoutes = [
   AVATAR_ROUTE,
   TABS_ROUTE,
   PAGINATION_ROUTE,
+  EMPTY_ROUTE,
   // NESTED_ROUTE,
   PAGE_NOT_FOUND_ROUTE,
 ];
