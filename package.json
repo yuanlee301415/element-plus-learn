@@ -1,6 +1,6 @@
 {
   "name": "element-plus-learn",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Element-Plus 学习",
   "scripts": {
     "dev": "vite",
