@@ -9,11 +9,18 @@
   </dl>
 
   <dl class="demo">
-    <dt>Error</dt>
+    <dt>
+      Error
+      <select v-model="imgSrc">
+        <option value="/logo.svg">logo.svg</option>
+        <option value="/vue.png">vue.png</option>
+        <option value="/react.png">react.svg</option>
+      </select>
+    </dt>
     <dd>
-      <LeAvatar src="/logo.svg" @error="() => {}">User</LeAvatar>
-      <LeAvatar src="/logo.svg">User2</LeAvatar>
-      <LeAvatar src="/logo.svg" @error="onError">
+      <LeAvatar :src="imgSrc" @error="() => {}">User</LeAvatar>
+      <LeAvatar :src="imgSrc">User2</LeAvatar>
+      <LeAvatar :src="imgSrc" @error="onError">
         <img src="/fallback.png" />
       </LeAvatar>
     </dd>
@@ -51,6 +58,9 @@
 
 <script lang="ts" setup>
 import LeAvatar from "@/components/LeAvatar";
+import { ref } from "vue";
+
+const imgSrc = ref("");
 
 function onError(e: Error) {
   console.log(e);

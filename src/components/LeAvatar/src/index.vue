@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 import type { ComponentSize } from "@/constants/size";
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { componentSizes } from "@/constants/size";
 
 type Fit = "fill" | "contain" | "cover" | "none" | "scale-down";
@@ -52,6 +52,13 @@ const sizeStyle = computed(() => ({
 const emit = defineEmits(["error"]);
 
 const hasLoadError = ref(false);
+
+watch(
+  () => props.src,
+  () => {
+    hasLoadError.value = false;
+  }
+);
 
 function handleError(e: Event) {
   hasLoadError.value = true;
