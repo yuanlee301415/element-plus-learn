@@ -1,6 +1,4 @@
-type Many<T> = T | ReadonlyArray<T>;
-
-export const ensureArray = <T>(arr: Many<T>): T[] => {
-  if (!arr && (arr as any) !== 0) return [];
+export const ensureArray = <T>(arr: T | T[]): T[] => {
+  if (!arr) return [];
   return Array.isArray(arr) ? arr : [arr];
 };
