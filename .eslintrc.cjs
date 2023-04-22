@@ -18,5 +18,8 @@ module.exports = {
   "globals": {
     "__APP_VERSION__": "readonly",
     "__APP_BUILD_TIME__": "readonly"
+  },
+  env: {
+    node: true
   }
 }
