@@ -1,12 +1,10 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "types/**/*"],
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue",  "types/**/*"],
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "ESNext",
     "lib": ["ESNext", "DOM"],
-    "baseUrl": ".",
-    "types": ["vite/client"],
-    "typeRoots": ["./node_modules/@types/", "./types"],
     "paths": {
       "@/*": ["./src/*"],
       "#/*": ["./types/*"]
@@ -15,7 +13,7 @@
 
   "references": [
     {
-      "path": "./tsconfig.config.json"
+      "path": "./tsconfig.node.json"
     }
   ]
 }
