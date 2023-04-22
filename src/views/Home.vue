@@ -1,9 +1,7 @@
 <template>
   <h1>Home</h1>
 
-  <div
-    class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4"
-  >
+  <div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
     <div class="flex-shrink-0">
       <img class="h-12 w-12" src="@/assets/logo.svg" alt="Logo" />
     </div>

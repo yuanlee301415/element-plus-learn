@@ -7,9 +7,7 @@
       <span v-if="$slots.prefix || prefix" class="statistic__prefix">
         <slot name="prefix">{{ prefix }}</slot>
       </span>
-      <span :style="valueStyle" class="statistic__number">{{
-        displayValue
-      }}</span>
+      <span :style="valueStyle" class="statistic__number">{{ displayValue }}</span>
       <span v-if="$slots.suffix || suffix" class="statistic__suffix">
         <slot name="suffix">{{ suffix }}</slot>
       </span>
@@ -18,17 +16,17 @@
 </template>
 
 <script setup lang="ts">
-import { statisticProps } from "@/components/LeStatistic/src/typing";
-import { useStatistic } from "@/components/LeStatistic/src/useStatistic";
+import { statisticProps } from '@/components/LeStatistic/src/typing'
+import { useStatistic } from '@/components/LeStatistic/src/useStatistic'
 
-const props = defineProps(statisticProps);
-const { displayValue } = useStatistic(props);
+const props = defineProps(statisticProps)
+const { displayValue } = useStatistic(props)
 
 defineExpose({
-  displayValue,
-});
+  displayValue
+})
 </script>
 
 <style>
-@import "style.css";
+@import 'style.css';
 </style>

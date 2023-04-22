@@ -76,18 +76,18 @@
 </template>
 
 <script lang="ts" setup>
-import type { BadgeInstance } from "@/components/LeBadge";
+import type { BadgeInstance } from '@/components/LeBadge'
 
-import { onMounted, ref } from "vue";
-import LeBadge from "@/components/LeBadge";
+import { onMounted, ref } from 'vue'
+import LeBadge from '@/components/LeBadge'
 
-const contentRef = ref<BadgeInstance>();
-const contentRef2 = ref<BadgeInstance>();
-const contentRef3 = ref<BadgeInstance>();
+const contentRef = ref<BadgeInstance>()
+const contentRef2 = ref<BadgeInstance>()
+const contentRef3 = ref<BadgeInstance>()
 
 onMounted(() => {
-  console.log("ref>content:", contentRef.value?.content);
-  console.log("ref>content 2:", contentRef2.value?.content);
-  console.log("ref>content 3:", contentRef3.value?.content);
-});
+  console.log('ref>content:', contentRef.value?.content)
+  console.log('ref>content 2:', contentRef2.value?.content)
+  console.log('ref>content 3:', contentRef3.value?.content)
+})
 </script>

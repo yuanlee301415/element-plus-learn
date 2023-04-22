@@ -1,36 +1,36 @@
 .statistic {
-    --statistic-title-font-weight: 400;
-    --statistic-title-font-size: var(--font-size-extra-small);
-    --statistic-title-color: var(--text-color-regular);
-    --statistic-content-font-weight: 400;
-    --statistic-content-font-size: var(--font-size-extra-large);
-    --statistic-content-color: var(--text-color-primary)
+  --statistic-title-font-weight: 400;
+  --statistic-title-font-size: var(--font-size-extra-small);
+  --statistic-title-color: var(--text-color-regular);
+  --statistic-content-font-weight: 400;
+  --statistic-content-font-size: var(--font-size-extra-large);
+  --statistic-content-color: var(--text-color-primary);
 }
 
 .statistic__head {
-    font-weight: var(--statistic-title-font-weight);
-    font-size: var(--statistic-title-font-size);
-    color: var(--statistic-title-color);
-    line-height: 20px;
-    margin-bottom: 4px
+  font-weight: var(--statistic-title-font-weight);
+  font-size: var(--statistic-title-font-size);
+  color: var(--statistic-title-color);
+  line-height: 20px;
+  margin-bottom: 4px;
 }
 
 .statistic__content {
-    font-weight: var(--statistic-content-font-weight);
-    font-size: var(--statistic-content-font-size);
-    color: var(--statistic-content-color)
+  font-weight: var(--statistic-content-font-weight);
+  font-size: var(--statistic-content-font-size);
+  color: var(--statistic-content-color);
 }
 
 .statistic__value {
-    display: inline-block
+  display: inline-block;
 }
 
 .statistic__prefix {
-    margin-right: 4px;
-    display: inline-block
+  margin-right: 4px;
+  display: inline-block;
 }
 
 .statistic__suffix {
-    margin-left: 4px;
-    display: inline-block
+  margin-left: 4px;
+  display: inline-block;
 }

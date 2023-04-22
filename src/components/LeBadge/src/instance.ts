@@ -1,3 +1,3 @@
-import type Badge from "./index.vue";
+import type Badge from './index.vue'
 
-export type BadgeInstance = InstanceType<typeof Badge>;
+export type BadgeInstance = InstanceType<typeof Badge>

@@ -5,38 +5,38 @@
 </template>
 
 <script setup lang="ts">
-import type { Component, VNode } from "vue";
+import type { Component, VNode } from 'vue'
 
-import { computed, ref, useSlots } from "vue";
+import { computed, ref, useSlots } from 'vue'
 
-import { HORIZONTAL, VERTICAL, HeaderName, FooterName } from "./constants";
+import { HORIZONTAL, VERTICAL, HeaderName, FooterName } from './constants'
 
 type Props = {
-  direction?: typeof HORIZONTAL | typeof VERTICAL;
-};
+  direction?: typeof HORIZONTAL | typeof VERTICAL
+}
 
-const props = defineProps<Props>();
+const props = defineProps<Props>()
 
-const slots = useSlots();
+const slots = useSlots()
 
 const isVertical = computed(() => {
-  if (props.direction === VERTICAL) return true;
-  else if (props.direction === HORIZONTAL) return false;
+  if (props.direction === VERTICAL) return true
+  else if (props.direction === HORIZONTAL) return false
 
-  if (!slots?.default) return false;
+  if (!slots?.default) return false
 
-  const vNodes: VNode[] = slots.default();
+  const vNodes: VNode[] = slots.default()
   return vNodes.some((vNode) => {
-    const tag = (vNode.type as Component).name;
-    return HeaderName === tag || FooterName === tag;
-  });
-});
+    const tag = (vNode.type as Component).name
+    return HeaderName === tag || FooterName === tag
+  })
+})
 
 const cls = ref({
-  "is-vertical": isVertical,
-});
+  'is-vertical': isVertical
+})
 </script>
 
 <style scoped>
-@import "style.css";
+@import 'style.css';
 </style>

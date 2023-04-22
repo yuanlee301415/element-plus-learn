@@ -26,6 +26,6 @@
 </template>
 
 <script lang="ts" setup>
-import LeSpace from "@/components/LeSpace";
-import LeCard from "@/components/LeCard";
+import LeSpace from '@/components/LeSpace'
+import LeCard from '@/components/LeCard'
 </script>

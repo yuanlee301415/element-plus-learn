@@ -34,5 +34,5 @@
 </template>
 
 <script lang="ts" setup>
-import { LeBreadcrumb, LeBreadcrumbItem } from "@/components/Lebreadcrumb";
+import { LeBreadcrumb, LeBreadcrumbItem } from '@/components/Lebreadcrumb'
 </script>

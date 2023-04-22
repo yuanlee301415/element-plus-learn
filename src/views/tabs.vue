@@ -51,12 +51,12 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
-import { LeTabs, LeTabPane } from "@/components/LeTabs";
+import { ref } from 'vue'
+import { LeTabs, LeTabPane } from '@/components/LeTabs'
 
-const activeName = ref("second");
-const position = ref("left");
+const activeName = ref('second')
+const position = ref('left')
 const handleClick = (tab: any, event: Event) => {
-  console.log("Demo>handleClick:", { tab, event });
-};
+  console.log('Demo>handleClick:', { tab, event })
+}
 </script>

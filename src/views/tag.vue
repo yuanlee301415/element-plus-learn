@@ -102,36 +102,36 @@
 </template>
 
 <script lang="ts" setup>
-import type { ComponentType } from "@/constants/type";
+import type { ComponentType } from '@/constants/type'
 
-import { reactive, ref, watch } from "vue";
-import LeTag from "@/components/LeTag";
-import LeCheckTag from "@/components/LeCheckTag";
+import { reactive, ref, watch } from 'vue'
+import LeTag from '@/components/LeTag'
+import LeCheckTag from '@/components/LeCheckTag'
 
-type Tag = { name: string; type: ComponentType };
+type Tag = { name: string; type: ComponentType }
 const tags: Tag[] = reactive([
-  { name: "Tag 1", type: "" },
-  { name: "Tag 2", type: "success" },
-  { name: "Tag 3", type: "info" },
-  { name: "Tag 4", type: "warning" },
-  { name: "Tag 5", type: "danger" },
-]);
+  { name: 'Tag 1', type: '' },
+  { name: 'Tag 2', type: 'success' },
+  { name: 'Tag 3', type: 'info' },
+  { name: 'Tag 4', type: 'warning' },
+  { name: 'Tag 5', type: 'danger' }
+])
 
-const checked = ref(false);
-watch(checked, (value) => console.log("watch>checked:", value));
+const checked = ref(false)
+watch(checked, (value) => console.log('watch>checked:', value))
 
 function handleChange(status: boolean) {
-  checked.value = status;
+  checked.value = status
 }
 
 function handleClose(tag: Tag) {
-  console.log(tag);
-  const idx = tags.indexOf(tag);
-  console.log(idx);
-  tags.splice(idx, 1);
+  console.log(tag)
+  const idx = tags.indexOf(tag)
+  console.log(idx)
+  tags.splice(idx, 1)
 }
 
 function handleClick() {
-  console.log("click>args:", arguments);
+  console.log('click>args:', arguments)
 }
 </script>

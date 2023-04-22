@@ -5,14 +5,14 @@
 </template>
 
 <script setup lang="ts">
-import { inject } from "vue";
-import { tabsContextKey } from "@/tokens/tabs";
-import { tabPaneProps } from "./typing";
+import { inject } from 'vue'
+import { tabsContextKey } from '@/tokens/tabs'
+import { tabPaneProps } from './typing'
 
-const props = defineProps(tabPaneProps);
-const tabs = inject(tabsContextKey);
+const props = defineProps(tabPaneProps)
+const tabs = inject(tabsContextKey)
 
-tabs?.regTab({ name: props.name, label: props.label });
+tabs?.regTab({ name: props.name, label: props.label })
 </script>
 
 <style scoped></style>

@@ -75,5 +75,5 @@
 </template>
 
 <script lang="ts" setup>
-import LeEmpty from "@/components/LeEmpty";
+import LeEmpty from '@/components/LeEmpty'
 </script>

@@ -5,9 +5,7 @@
         <div class="calendar__title">{{ year }} / {{ month + 1 }}</div>
         <div class="calendar__button-group">
           <LeButtonGroup>
-            <LeButton @click="selectedDate('prev-month')"
-              >Previous Month</LeButton
-            >
+            <LeButton @click="selectedDate('prev-month')">Previous Month</LeButton>
             <LeButton @click="selectedDate('today')">Today</LeButton>
             <LeButton @click="selectedDate('next-month')">Next Month</LeButton>
           </LeButtonGroup>
@@ -23,9 +21,7 @@
         </thead>
         <tbody>
           <tr
-            v-for="(row, rowIdx) of Math.ceil(
-              dates.length / DAYS_IN_WEEK.length
-            )"
+            v-for="(row, rowIdx) of Math.ceil(dates.length / DAYS_IN_WEEK.length)"
             :key="firstDay.getTime() + rowIdx"
             class="calendar-table__row"
           >
@@ -57,15 +53,15 @@
 </template>
 
 <script setup lang="ts">
-import LeButtonGroup from "@/components/LeButtonGroup";
-import LeButton from "@/components/LeButton";
+import LeButtonGroup from '@/components/LeButtonGroup'
+import LeButton from '@/components/LeButton'
 
-import { calendarProps, calendarEmit, DAYS_IN_WEEK } from "./typing";
-import { useCalendar } from "./useCalendar";
-import CellDate from "./CellDate.vue";
+import { calendarProps, calendarEmit, DAYS_IN_WEEK } from './typing'
+import { useCalendar } from './useCalendar'
+import CellDate from './CellDate.vue'
 
-const props = defineProps(calendarProps);
-const emit = defineEmits(calendarEmit);
+const props = defineProps(calendarProps)
+const emit = defineEmits(calendarEmit)
 const {
   date,
   year,
@@ -76,14 +72,14 @@ const {
   lastDay,
   handleChooseDate,
   selectedDate,
-  getCellDate,
-} = useCalendar(props, emit);
+  getCellDate
+} = useCalendar(props, emit)
 
 defineExpose({
-  selectedDate,
-});
+  selectedDate
+})
 </script>
 
 <style>
-@import "./style.css";
+@import './style.css';
 </style>

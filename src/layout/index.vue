@@ -10,9 +10,9 @@
 </template>
 
 <script lang="ts" setup>
-import LayoutSideBar from "./SideBar/index.vue";
-import LayoutHeader from "./Header/index.vue";
-import LayoutContent from "./Content/index.vue";
+import LayoutSideBar from './SideBar/index.vue'
+import LayoutHeader from './Header/index.vue'
+import LayoutContent from './Content/index.vue'
 </script>
 
 <style scoped lang="less">

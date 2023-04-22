@@ -1,64 +1,50 @@
-import type { SetupContext } from "vue";
-import type {
-  TransferKey,
-  TransferProps,
-  TransferEmit,
-  TransferDataItem,
-} from "./typing";
+import type { SetupContext } from 'vue'
+import type { TransferKey, TransferProps, TransferEmit, TransferDataItem } from './typing'
 
-import { computed, ref, watchEffect } from "vue";
-import { UPDATE_MODEL_EVENT } from "@/constants/event";
-import { Direction } from "./typing";
+import { computed, ref, watchEffect } from 'vue'
+import { UPDATE_MODEL_EVENT } from '@/constants/event'
+import { Direction } from './typing'
 
-export const useTransfer = (
-  props: TransferProps,
-  emit: SetupContext<TransferEmit>["emit"]
-) => {
+export const useTransfer = (props: TransferProps, emit: SetupContext<TransferEmit>['emit']) => {
   // 数组中的各项 key 不包含在父组件的 modelValue 中
   const leftItems = computed<TransferDataItem[]>(() => {
-    return (
-      props.data?.filter((item) => !props.modelValue?.includes(item.key)) ?? []
-    );
-  });
+    return props.data?.filter((item) => !props.modelValue?.includes(item.key)) ?? []
+  })
 
   // 数组中的各项 key 包含在父组件的 modelValue 中
   const rightItems = computed<TransferDataItem[]>(() => {
-    return (
-      props.data?.filter((item) => props.modelValue?.includes(item.key)) ?? []
-    );
-  });
+    return props.data?.filter((item) => props.modelValue?.includes(item.key)) ?? []
+  })
 
   // 左侧面板选中项的 key
-  const leftSelectedKeysModelValue = ref<TransferKey[]>([]);
+  const leftSelectedKeysModelValue = ref<TransferKey[]>([])
 
   // 右侧面板选中项的 key
-  const rightSelectedKeysModelValue = ref<TransferKey[]>([]);
+  const rightSelectedKeysModelValue = ref<TransferKey[]>([])
 
   watchEffect(() => {
     leftSelectedKeysModelValue.value = props.leftDefaultChecked?.filter(
       (key) => !props.data?.find((item) => item.key === key)?.disabled
-    );
+    )
     rightSelectedKeysModelValue.value = props.rightDefaultChecked?.filter(
       (key) => !props.data?.find((item) => item.key === key)?.disabled
-    );
-  });
+    )
+  })
 
   function toRight() {
-    const _keys = props.modelValue.concat(leftSelectedKeysModelValue.value);
+    const _keys = props.modelValue.concat(leftSelectedKeysModelValue.value)
 
-    emit(UPDATE_MODEL_EVENT, _keys);
-    emit("change", _keys, Direction.Right, leftSelectedKeysModelValue.value);
-    leftSelectedKeysModelValue.value = [];
+    emit(UPDATE_MODEL_EVENT, _keys)
+    emit('change', _keys, Direction.Right, leftSelectedKeysModelValue.value)
+    leftSelectedKeysModelValue.value = []
   }
 
   function toLeft() {
-    const _keys = props.modelValue?.filter(
-      (_) => !rightSelectedKeysModelValue.value.includes(_)
-    );
+    const _keys = props.modelValue?.filter((_) => !rightSelectedKeysModelValue.value.includes(_))
 
-    emit(UPDATE_MODEL_EVENT, _keys);
-    emit("change", _keys, Direction.Left, rightSelectedKeysModelValue.value);
-    rightSelectedKeysModelValue.value = [];
+    emit(UPDATE_MODEL_EVENT, _keys)
+    emit('change', _keys, Direction.Left, rightSelectedKeysModelValue.value)
+    rightSelectedKeysModelValue.value = []
   }
 
   return {
@@ -67,6 +53,6 @@ export const useTransfer = (
     leftItems,
     rightItems,
     toLeft,
-    toRight,
-  };
-};
+    toRight
+  }
+}

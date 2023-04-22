@@ -21,55 +21,53 @@
     </template>
     <template v-else>
       <dt>
-        <router-link :to="{ name: item.name }">{{
-          item.meta.title
-        }}</router-link>
+        <router-link :to="{ name: item.name }">{{ item.meta.title }}</router-link>
       </dt>
     </template>
   </dl>
 </template>
 
 <script lang="ts" setup>
-import type { AppRouteRecordRaw } from "@/router/types";
+import type { AppRouteRecordRaw } from '@/router/types'
 
-import { ref, watch } from "vue";
-import { useRoute } from "vue-router";
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 
 const props = defineProps<{
-  item: AppRouteRecordRaw;
-  depth: number;
-  fullPath?: string;
-}>();
+  item: AppRouteRecordRaw
+  depth: number
+  fullPath?: string
+}>()
 
-const route = useRoute();
-const open = ref<boolean>();
+const route = useRoute()
+const open = ref<boolean>()
 
 watch(
   () => route.name,
   () => {
-    open.value = initOpen();
+    open.value = initOpen()
   },
   {
-    immediate: true,
+    immediate: true
   }
-);
+)
 
 function initOpen(): boolean {
-  if (!props.item.children || !props.item.children.length) return false;
+  if (!props.item.children || !props.item.children.length) return false
 
-  const routeFullPathList = route.fullPath.split("/");
-  const fullPathList = props.fullPath?.split("/") || [];
+  const routeFullPathList = route.fullPath.split('/')
+  const fullPathList = props.fullPath?.split('/') || []
   for (let i = 0; i < fullPathList.length; i++) {
-    if (fullPathList[i] !== routeFullPathList[i]) return false;
+    if (fullPathList[i] !== routeFullPathList[i]) return false
   }
-  return true;
+  return true
 }
 
 function handleToggleOpen(): void {
-  open.value = !open.value;
+  open.value = !open.value
 }
 </script>
 
 <style scoped lang="less">
-@import "./MenuItem.less";
+@import './MenuItem.less';
 </style>

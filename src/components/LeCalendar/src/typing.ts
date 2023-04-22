@@ -1,57 +1,50 @@
-import type { ExtractPropTypes, PropType } from "vue";
-import type Calendar from "./index.vue";
+import type { ExtractPropTypes, PropType } from 'vue'
+import type Calendar from './index.vue'
 
-import { UPDATE_MODEL_EVENT } from "@/constants/event";
+import { UPDATE_MODEL_EVENT } from '@/constants/event'
 
-export type CalendarValue = Date | string | number;
-export type CalendarProps = ExtractPropTypes<typeof calendarProps>;
-export type CalendarEmit = typeof calendarEmit;
-export type CalendarDateType =
-  | "prev-month"
-  | "next-month"
-  | "prev-year"
-  | "next-year"
-  | "today";
+export type CalendarValue = Date | string | number
+export type CalendarProps = ExtractPropTypes<typeof calendarProps>
+export type CalendarEmit = typeof calendarEmit
+export type CalendarDateType = 'prev-month' | 'next-month' | 'prev-year' | 'next-year' | 'today'
 
-export type CalendarCellDateProps = ExtractPropTypes<
-  typeof calendarCellDateProps
->;
-export type CalendarCellDateEmit = typeof calendarCellDateEmit;
+export type CalendarCellDateProps = ExtractPropTypes<typeof calendarCellDateProps>
+export type CalendarCellDateEmit = typeof calendarCellDateEmit
 
-export const MILLISECONDS_IN_DAY = 1000 * 3600 * 24;
-export const DAYS_IN_WEEK = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-export const CALENDAR_CHOOSE_EVENT = "choose-date";
+export const MILLISECONDS_IN_DAY = 1000 * 3600 * 24
+export const DAYS_IN_WEEK = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+export const CALENDAR_CHOOSE_EVENT = 'choose-date'
 
 export const calendarProps = {
   modelValue: {
-    type: [Date, Number, String] as PropType<CalendarValue>,
-  },
-};
+    type: [Date, Number, String] as PropType<CalendarValue>
+  }
+}
 
 export const calendarEmit = {
-  [UPDATE_MODEL_EVENT]: (value: Date) => !!value.getTime(),
-};
+  [UPDATE_MODEL_EVENT]: (value: Date) => !!value.getTime()
+}
 
 export const calendarCellDateProps = {
   cellDate: {
-    type: Date,
+    type: Date
   },
   value: {
-    type: Date,
+    type: Date
   },
   today: {
-    type: Date,
+    type: Date
   },
   firstDay: {
-    type: Date,
+    type: Date
   },
   lastDay: {
-    type: Date,
-  },
-};
+    type: Date
+  }
+}
 
 export const calendarCellDateEmit = {
-  [CALENDAR_CHOOSE_EVENT]: (value: Date) => !!new Date(value).getTime(),
-};
+  [CALENDAR_CHOOSE_EVENT]: (value: Date) => !!new Date(value).getTime()
+}
 
-export type CalendarInstance = InstanceType<typeof Calendar>;
+export type CalendarInstance = InstanceType<typeof Calendar>

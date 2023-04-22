@@ -1,5 +1,5 @@
-import LeCard from "./src/index.vue";
+import LeCard from './src/index.vue'
 
-export default LeCard;
+export default LeCard
 
-export type { CardInstance } from "./src/instance";
+export type { CardInstance } from './src/instance'

@@ -4,7 +4,7 @@
       'is-today': isToday,
       'is-selected': isSelected,
       prev: isPrev,
-      next: !isCurrent && !isPrev,
+      next: !isCurrent && !isPrev
     }"
     @click="handleClickDate"
   >
@@ -21,22 +21,17 @@
 </template>
 
 <script setup lang="ts">
-import { formatDate } from "@/utils";
+import { formatDate } from '@/utils'
 
-import { calendarCellDateProps, calendarCellDateEmit } from "./typing";
-import { useCellDate } from "./useCellDate";
+import { calendarCellDateProps, calendarCellDateEmit } from './typing'
+import { useCellDate } from './useCellDate'
 
-const props = defineProps(calendarCellDateProps);
-const emit = defineEmits(calendarCellDateEmit);
-const {
-  cellDate,
-  isToday,
-  isCurrent,
-  isPrev,
-  isSelected,
-  type,
-  handleClickDate,
-} = useCellDate(props, emit);
+const props = defineProps(calendarCellDateProps)
+const emit = defineEmits(calendarCellDateEmit)
+const { cellDate, isToday, isCurrent, isPrev, isSelected, type, handleClickDate } = useCellDate(
+  props,
+  emit
+)
 </script>
 
 <style scoped></style>

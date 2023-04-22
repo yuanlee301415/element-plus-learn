@@ -1,3 +1,3 @@
-import LeSpace from "./src/space";
+import LeSpace from './src/space'
 
-export default LeSpace;
+export default LeSpace

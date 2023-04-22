@@ -3,16 +3,9 @@
     <div class="headerLeft">
       <div v-if="matched" class="breadcrumbs">
         <template v-for="(item, idx) of matched" :key="item.name">
-          <dl
-            v-if="
-              item.meta.hiddenChildrenInMenu !== true &&
-              idx < matched.length - 1
-            "
-          >
+          <dl v-if="item.meta.hiddenChildrenInMenu !== true && idx < matched.length - 1">
             <dt>
-              <router-link :to="{ name: item.name }">{{
-                item.meta?.title
-              }}</router-link
+              <router-link :to="{ name: item.name }">{{ item.meta?.title }}</router-link
               ><span>/</span>
             </dt>
             <dd>
@@ -30,32 +23,30 @@
     </div>
 
     <div class="headerRight">
-      <span v-if="userInfo.userName"
-        >{{ userInfo.userName }}({{ userInfo.realName }})</span
-      >
+      <span v-if="userInfo.userName">{{ userInfo.userName }}({{ userInfo.realName }})</span>
     </div>
   </header>
 </template>
 
 <script lang="ts" setup>
-import type { RouteRecordNormalized } from "vue-router";
+import type { RouteRecordNormalized } from 'vue-router'
 
-import { useRoute } from "vue-router";
-import { ref, watch, computed } from "vue";
-import { useUserStore } from "@/store/modules/user";
+import { useRoute } from 'vue-router'
+import { ref, watch, computed } from 'vue'
+import { useUserStore } from '@/store/modules/user'
 
-const route = useRoute();
-const matched = ref<RouteRecordNormalized[]>();
-const userStore = useUserStore();
-const userInfo = computed(() => userStore.getUserInfo);
+const route = useRoute()
+const matched = ref<RouteRecordNormalized[]>()
+const userStore = useUserStore()
+const userInfo = computed(() => userStore.getUserInfo)
 
 watch(
   () => route.name,
   () => {
-    matched.value = route.matched;
+    matched.value = route.matched
   },
   { immediate: true }
-);
+)
 </script>
 
 <style scoped lang="less">

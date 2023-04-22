@@ -18,12 +18,12 @@
 </template>
 
 <script setup lang="ts">
-import { emptyProps } from "./empty";
-import emptyImg from "./empty.png";
+import { emptyProps } from './empty'
+import emptyImg from './empty.png'
 
-const props = defineProps(emptyProps);
+const props = defineProps(emptyProps)
 </script>
 
 <style>
-@import "./style.css";
+@import './style.css';
 </style>

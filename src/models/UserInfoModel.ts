@@ -3,22 +3,22 @@
  */
 export default class UserInfoModel {
   // 用户 Id
-  userId: string | number;
+  userId: string | number
 
   // 用户名称
-  userName: string;
+  userName: string
 
   // 用户真实姓名
-  realName: string;
+  realName: string
 
   // 用户简介
-  desc?: string;
+  desc?: string
 
   constructor(_: UserInfoModel) {
-    const { userId, userName, realName, desc } = { ..._ };
-    this.userId = userId;
-    this.userName = userName;
-    this.realName = realName;
-    this.desc = desc;
+    const { userId, userName, realName, desc } = { ..._ }
+    this.userId = userId
+    this.userName = userName
+    this.realName = realName
+    this.desc = desc
   }
 }

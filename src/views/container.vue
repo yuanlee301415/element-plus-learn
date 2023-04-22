@@ -37,13 +37,7 @@
 </template>
 
 <script lang="ts" setup>
-import {
-  LeContainer,
-  LeHeader,
-  LeAside,
-  LeMain,
-  LeFooter,
-} from "@/components/LeContainer";
+import { LeContainer, LeHeader, LeAside, LeMain, LeFooter } from '@/components/LeContainer'
 </script>
 
 <style scoped>

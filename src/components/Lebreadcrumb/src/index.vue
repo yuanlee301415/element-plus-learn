@@ -5,5 +5,5 @@
 <script setup lang="ts"></script>
 
 <style>
-@import "./style.css";
+@import './style.css';
 </style>

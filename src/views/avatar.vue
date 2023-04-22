@@ -57,12 +57,12 @@
 </template>
 
 <script lang="ts" setup>
-import LeAvatar from "@/components/LeAvatar";
-import { ref } from "vue";
+import LeAvatar from '@/components/LeAvatar'
+import { ref } from 'vue'
 
-const imgSrc = ref("");
+const imgSrc = ref('')
 
 function onError(e: Error) {
-  console.log(e);
+  console.log(e)
 }
 </script>

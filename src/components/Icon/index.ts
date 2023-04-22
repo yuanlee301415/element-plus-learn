@@ -1,4 +1,4 @@
-import Icon from "./src/index.vue";
+import Icon from './src/index.vue'
 
-export * from "./src/typing";
-export default Icon;
+export * from './src/typing'
+export default Icon

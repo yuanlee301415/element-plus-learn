@@ -13,11 +13,7 @@
   <dl class="demo">
     <dt>Basic</dt>
     <dd>
-      <LePagination
-        v-model:current-page="currentPage"
-        :pager-count="pagerCount"
-        :total="total"
-      />
+      <LePagination v-model:current-page="currentPage" :pager-count="pagerCount" :total="total" />
     </dd>
   </dl>
 
@@ -32,21 +28,9 @@
       </select>
     </dt>
     <dd>
-      <LePagination
-        v-model:current-page="currentPage"
-        :total="total"
-        :pager-count="pagerCount"
-      />
-      <LePagination
-        v-model:current-page="currentPage"
-        :total="total"
-        :pager-count="pagerCount"
-      />
-      <LePagination
-        v-model:current-page="currentPage"
-        :total="total"
-        :pager-count="pagerCount"
-      />
+      <LePagination v-model:current-page="currentPage" :total="total" :pager-count="pagerCount" />
+      <LePagination v-model:current-page="currentPage" :total="total" :pager-count="pagerCount" />
+      <LePagination v-model:current-page="currentPage" :total="total" :pager-count="pagerCount" />
     </dd>
   </dl>
 
@@ -71,11 +55,7 @@
       </select>
     </dt>
     <dd>
-      <LePagination
-        v-model:current-page="currentPage"
-        :total="total"
-        :background="background"
-      />
+      <LePagination v-model:current-page="currentPage" :total="total" :background="background" />
     </dd>
   </dl>
 
@@ -88,11 +68,7 @@
       </select>
     </dt>
     <dd>
-      <LePagination
-        v-model:current-page="currentPage"
-        :total="total"
-        :small="small"
-      />
+      <LePagination v-model:current-page="currentPage" :total="total" :small="small" />
     </dd>
   </dl>
 
@@ -105,11 +81,7 @@
       </select>
     </dt>
     <dd>
-      <LePagination
-        v-model:current-page="currentPage"
-        :total="total"
-        :disabled="disabled"
-      />
+      <LePagination v-model:current-page="currentPage" :total="total" :disabled="disabled" />
       <LePagination
         v-model:current-page="currentPage"
         :total="total"
@@ -145,22 +117,22 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from "vue";
-import LePagination from "@/components/LePagination";
+import { ref, watch } from 'vue'
+import LePagination from '@/components/LePagination'
 
-const currentPage = ref(1);
-const pageSize = ref(20);
-const total = ref(30);
-const pagerCount = ref(5);
-const background = ref(true);
-const small = ref(true);
-const disabled = ref(true);
+const currentPage = ref(1)
+const pageSize = ref(20)
+const total = ref(30)
+const pagerCount = ref(5)
+const background = ref(true)
+const small = ref(true)
+const disabled = ref(true)
 
 watch(currentPage, (val) => {
-  console.log("Demo>watch>current:", val);
-});
+  console.log('Demo>watch>current:', val)
+})
 
 watch(pageSize, (val) => {
-  console.log("Demo>watch>pageSize:", val);
-});
+  console.log('Demo>watch>pageSize:', val)
+})
 </script>

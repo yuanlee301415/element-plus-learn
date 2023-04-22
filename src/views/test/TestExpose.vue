@@ -6,13 +6,13 @@
 </template>
 
 <script setup lang="ts">
-import TimeExpose from "@/views/test/TimeExpose.vue";
-import { ref } from "vue";
+import TimeExpose from '@/views/test/TimeExpose.vue'
+import { ref } from 'vue'
 
-const timeRef = ref();
+const timeRef = ref()
 
 function getTime() {
-  console.log(timeRef.value.time);
+  console.log(timeRef.value.time)
 }
 </script>
 

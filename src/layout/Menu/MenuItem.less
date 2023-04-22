@@ -2,7 +2,8 @@ dl {
   dt {
     position: relative;
     cursor: pointer;
-    & > a, & > span {
+    & > a,
+    & > span {
       color: white;
       text-decoration: none;
       font-size: 16px;
@@ -33,7 +34,8 @@ dl {
       transform: translateY(-50%);
       line-height: 40px;
       background: rgba(255, 255, 255, 0.2);
-      &:before, &:after {
+      &:before,
+      &:after {
         background-color: #fff;
         position: absolute;
         left: 43.33%;
@@ -41,7 +43,7 @@ dl {
         width: 6px;
         height: 1.5px;
         border-radius: 2px;
-        content: "";
+        content: '';
       }
       &:before {
         transform: rotate(-45deg) translateX(2.5px);

@@ -1,13 +1,13 @@
-import type { Router } from "vue-router";
+import type { Router } from 'vue-router'
 
-import { useUserStoreWithOut } from "@/store/modules/user";
+import { useUserStoreWithOut } from '@/store/modules/user'
 
 export function createPermissionGuard(router: Router) {
-  const userStore = useUserStoreWithOut();
+  const userStore = useUserStoreWithOut()
   router.beforeEach(async (to, from, next) => {
     if (!userStore.getUserInfo?.userName) {
-      await userStore.getUserInfoAction();
+      await userStore.getUserInfoAction()
     }
-    next();
-  });
+    next()
+  })
 }

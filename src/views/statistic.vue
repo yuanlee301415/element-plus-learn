@@ -23,14 +23,14 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref } from 'vue'
 
-import LeStatistic from "@/components/LeStatistic";
-import LeCountdown from "@/components/LeCountdown";
+import LeStatistic from '@/components/LeStatistic'
+import LeCountdown from '@/components/LeCountdown'
 
-const value = ref(10);
+const value = ref(10)
 
-const date = new Date();
+const date = new Date()
 
 const value2 = ref(
   new Date(
@@ -41,25 +41,25 @@ const value2 = ref(
     date.getMinutes() + 1,
     0
   ).getTime()
-);
+)
 
 function reset(min: number) {
-  value2.value = Date.now() + 1000 * min;
+  value2.value = Date.now() + 1000 * min
 }
 
 function reset2() {
-  value2.value = new Date().setMonth(new Date().getMonth() + 1);
+  value2.value = new Date().setMonth(new Date().getMonth() + 1)
 }
 
 function reset3() {
-  value2.value = new Date().setFullYear(new Date().getFullYear() + 1);
+  value2.value = new Date().setFullYear(new Date().getFullYear() + 1)
 }
 
 function change(time: number) {
-  console.log("change>time:", time);
+  console.log('change>time:', time)
 }
 
 function finish() {
-  console.log("finish");
+  console.log('finish')
 }
 </script>

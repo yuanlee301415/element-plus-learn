@@ -5,21 +5,21 @@
 </template>
 
 <script lang="ts" setup>
-import { collapseProps, collapseEmits } from "./typing";
-import { useCollapse } from "./use-collapse";
+import { collapseProps, collapseEmits } from './typing'
+import { useCollapse } from './use-collapse'
 
-const props = defineProps(collapseProps);
+const props = defineProps(collapseProps)
 
-const emit = defineEmits(collapseEmits);
+const emit = defineEmits(collapseEmits)
 
-const { activeNames, setActiveNames } = useCollapse(props, emit);
+const { activeNames, setActiveNames } = useCollapse(props, emit)
 
 defineExpose({
   activeNames,
-  setActiveNames,
-});
+  setActiveNames
+})
 </script>
 
 <style>
-@import "style.css";
+@import 'style.css';
 </style>

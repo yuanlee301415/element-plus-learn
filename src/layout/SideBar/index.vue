@@ -11,9 +11,9 @@
 </template>
 
 <script lang="ts" setup>
-import Menu from "../Menu/index.vue";
-import { ROOT_ROUTE } from "@/router/routes";
-const VITE_APP_TITLE = import.meta.env.VITE_APP_TITLE;
+import Menu from '../Menu/index.vue'
+import { ROOT_ROUTE } from '@/router/routes'
+const VITE_APP_TITLE = import.meta.env.VITE_APP_TITLE
 </script>
 
 <style scoped lang="less">

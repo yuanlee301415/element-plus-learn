@@ -1,60 +1,66 @@
 .breadcrumb {
-    font-size: 14px;
-    line-height: 1
+  font-size: 14px;
+  line-height: 1;
 }
 
-.breadcrumb:before,.breadcrumb:after {
-    display: table;
-    content: ""
+.breadcrumb:before,
+.breadcrumb:after {
+  display: table;
+  content: '';
 }
 
 .breadcrumb:after {
-    clear: both
+  clear: both;
 }
 
 .breadcrumb__separator {
-    margin: 0 9px;
-    font-weight: 700;
-    color: var(--text-color-placeholder)
+  margin: 0 9px;
+  font-weight: 700;
+  color: var(--text-color-placeholder);
 }
 
 .breadcrumb__separator.icon {
-    margin: 0 6px;
-    font-weight: 400
+  margin: 0 6px;
+  font-weight: 400;
 }
 
 .breadcrumb__separator.icon svg {
-    vertical-align: middle
+  vertical-align: middle;
 }
 
 .breadcrumb__item {
-    float: left;
-    display: inline-flex;
-    align-items: center
+  float: left;
+  display: inline-flex;
+  align-items: center;
 }
 
 .breadcrumb__inner {
-    color: var(--text-color-regular)
+  color: var(--text-color-regular);
 }
 
-.breadcrumb__inner.is-link,.breadcrumb__inner a {
-    font-weight: 700;
-    text-decoration: none;
-    transition: var(--transition-color);
-    color: var(--text-color-primary)
+.breadcrumb__inner.is-link,
+.breadcrumb__inner a {
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition-color);
+  color: var(--text-color-primary);
 }
 
-.breadcrumb__inner.is-link:hover,.breadcrumb__inner a:hover {
-    color: var(--color-primary);
-    cursor: pointer
+.breadcrumb__inner.is-link:hover,
+.breadcrumb__inner a:hover {
+  color: var(--color-primary);
+  cursor: pointer;
 }
 
-.breadcrumb__item:last-child .breadcrumb__inner,.breadcrumb__item:last-child .breadcrumb__inner:hover,.breadcrumb__item:last-child .breadcrumb__inner a,.breadcrumb__item:last-child .breadcrumb__inner a:hover {
-    font-weight: 400;
-    color: var(--text-color-regular);
-    cursor: text
+.breadcrumb__item:last-child .breadcrumb__inner,
+.breadcrumb__item:last-child .breadcrumb__inner:hover,
+.breadcrumb__item:last-child .breadcrumb__inner a,
+.breadcrumb__item:last-child .breadcrumb__inner a:hover {
+  font-weight: 400;
+  color: var(--text-color-regular);
+  cursor: text;
 }
 
 .breadcrumb__item:last-child .breadcrumb__separator {
-    display: none
+  display: none;
 }

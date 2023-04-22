@@ -5,20 +5,20 @@
 </template>
 
 <script setup lang="ts">
-import { onUnmounted, ref } from "vue";
+import { onUnmounted, ref } from 'vue'
 
-const time = ref(new Date());
+const time = ref(new Date())
 const timer = setInterval(() => {
-  time.value = new Date();
-}, 1000);
+  time.value = new Date()
+}, 1000)
 
 onUnmounted(() => {
-  clearInterval(timer);
-});
+  clearInterval(timer)
+})
 
 defineExpose({
-  time,
-});
+  time
+})
 </script>
 
 <style scoped></style>

@@ -1,60 +1,60 @@
 .badge {
-    --badge-bg-color: var(--color-danger);
-    --badge-radius: 10px;
-    --badge-font-size: 12px;
-    --badge-padding: 6px;
-    --badge-size: 18px;
+  --badge-bg-color: var(--color-danger);
+  --badge-radius: 10px;
+  --badge-font-size: 12px;
+  --badge-padding: 6px;
+  --badge-size: 18px;
 }
 
 .badge {
-    position: relative;
-    vertical-align: middle;
-    display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 .badge__content {
-    background-color: var(--badge-bg-color);
-    border-radius: var(--badge-radius);
-    color: var(--color-white);
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    font-size: var(--badge-font-size);
-    height: var(--badge-size);
-    padding: 0 var(--badge-padding);
-    white-space: nowrap;
-    border: 1px solid var(--bg-color);
+  background-color: var(--badge-bg-color);
+  border-radius: var(--badge-radius);
+  color: var(--color-white);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--badge-font-size);
+  height: var(--badge-size);
+  padding: 0 var(--badge-padding);
+  white-space: nowrap;
+  border: 1px solid var(--bg-color);
 }
 
 .badge__content.is-dot {
-    height: 8px;
-    width: 8px;
-    padding: 0;
-    right: 0;
-    border-radius: 50%
+  height: 8px;
+  width: 8px;
+  padding: 0;
+  right: 0;
+  border-radius: 50%;
 }
 .badge__content.is-fixed {
-    position: absolute;
-    top: 0;
-    right: calc(1px + var(--badge-size) / 2);
-    transform: translateY(-50%) translate(100%);
+  position: absolute;
+  top: 0;
+  right: calc(1px + var(--badge-size) / 2);
+  transform: translateY(-50%) translate(100%);
 }
 .badge__content.is-fixed.is-dot {
-    right: 5px
+  right: 5px;
 }
 
 .badge__content--primary {
-    background-color: var(--color-primary)
+  background-color: var(--color-primary);
 }
 .badge__content--success {
-    background-color: var(--color-success)
+  background-color: var(--color-success);
 }
 .badge__content--warning {
-    background-color: var(--color-warning)
+  background-color: var(--color-warning);
 }
 .badge__content--info {
-    background-color: var(--color-info)
+  background-color: var(--color-info);
 }
 .badge__content--danger {
-    background-color: var(--color-danger)
+  background-color: var(--color-danger);
 }

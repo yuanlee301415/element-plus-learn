@@ -67,8 +67,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
-import LeCard from "@/components/LeCard";
+import { ref } from 'vue'
+import LeCard from '@/components/LeCard'
 
-const time = ref<Date>(new Date());
+const time = ref<Date>(new Date())
 </script>

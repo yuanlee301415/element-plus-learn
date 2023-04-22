@@ -1,48 +1,48 @@
 .le-container {
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    flex-basis: auto;
-    box-sizing: border-box;
-    min-width: 0
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  flex-basis: auto;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .le-container.is-vertical {
-    flex-direction: column
+  flex-direction: column;
 }
 
 .le-header {
-    --header-padding: 0 20px;
-    --header-height: 60px;
-    padding: var(--header-padding);
-    box-sizing: border-box;
-    flex-shrink: 0;
-    height: var(--header-height)
+  --header-padding: 0 20px;
+  --header-height: 60px;
+  padding: var(--header-padding);
+  box-sizing: border-box;
+  flex-shrink: 0;
+  height: var(--header-height);
 }
 
 .le-main {
-    --main-padding: 20px;
-    display: block;
-    flex: 1;
-    flex-basis: auto;
-    overflow: auto;
-    box-sizing: border-box;
-    padding: var(--main-padding)
+  --main-padding: 20px;
+  display: block;
+  flex: 1;
+  flex-basis: auto;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: var(--main-padding);
 }
 
 .le-aside {
-    --aside-width: 200px;
-    overflow: auto;
-    box-sizing: border-box;
-    flex-shrink: 0;
-    width: var(--aside-width, 300px)
+  --aside-width: 200px;
+  overflow: auto;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  width: var(--aside-width, 300px);
 }
 
 .le-footer {
-    --footer-padding: 0 20px;
-    --footer-height: 60px;
-    padding: var(--footer-padding);
-    box-sizing: border-box;
-    flex-shrink: 0;
-    height: var(--footer-height)
+  --footer-padding: 0 20px;
+  --footer-height: 60px;
+  padding: var(--footer-padding);
+  box-sizing: border-box;
+  flex-shrink: 0;
+  height: var(--footer-height);
 }

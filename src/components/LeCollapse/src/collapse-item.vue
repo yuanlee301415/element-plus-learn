@@ -9,20 +9,11 @@
         @click="handleItemClick"
       >
         <slot name="title">{{ title }}</slot>
-        <Icon
-          :class="iconKls"
-          name="arrow-right"
-          class="collapse-item__arrow"
-        />
+        <Icon :class="iconKls" name="arrow-right" class="collapse-item__arrow" />
       </div>
     </div>
 
-    <div
-      v-show="isActive"
-      :id="scopedContentId"
-      class="collapse-item__wrap"
-      role="tabpanel"
-    >
+    <div v-show="isActive" :id="scopedContentId" class="collapse-item__wrap" role="tabpanel">
       <div class="collapse-item__content">
         <slot />
       </div>
@@ -31,12 +22,14 @@
 </template>
 
 <script lang="ts" setup>
-import { collapseItemProps } from "./typing";
-import { useCollapseItem, useCollapseItemDOM } from "./use-collapse-item";
+import { collapseItemProps } from './typing'
+import { useCollapseItem, useCollapseItemDOM } from './use-collapse-item'
 
-const props = defineProps(collapseItemProps);
+const props = defineProps(collapseItemProps)
 
-const { id, isActive, handleItemClick } = useCollapseItem(props);
-const { itemKls, buttonKls, iconKls, scopedHeadId, scopedContentId } =
-  useCollapseItemDOM(props, { id, isActive });
+const { id, isActive, handleItemClick } = useCollapseItem(props)
+const { itemKls, buttonKls, iconKls, scopedHeadId, scopedContentId } = useCollapseItemDOM(props, {
+  id,
+  isActive
+})
 </script>

@@ -5,25 +5,23 @@
 </template>
 
 <script lang="ts">
-import { FooterName } from "./constants";
+import { FooterName } from './constants'
 
 export default {
-  name: FooterName,
-};
+  name: FooterName
+}
 </script>
 
 <script setup lang="ts">
-import type { CSSProperties } from "vue";
+import type { CSSProperties } from 'vue'
 
-import { computed } from "vue";
+import { computed } from 'vue'
 
 const props = defineProps({
   height: {
-    type: String,
-  },
-});
+    type: String
+  }
+})
 
-const style = computed<CSSProperties>(() =>
-  props.height ? `--footer-height:${props.height}` : {}
-);
+const style = computed<CSSProperties>(() => (props.height ? `--footer-height:${props.height}` : {}))
 </script>

@@ -1,4 +1,4 @@
-import LeCountdown from "./src/index.vue";
+import LeCountdown from './src/index.vue'
 
-export * from "./src/typing";
-export default LeCountdown;
+export * from './src/typing'
+export default LeCountdown

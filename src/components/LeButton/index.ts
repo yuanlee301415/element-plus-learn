@@ -1,5 +1,5 @@
-import LeButton from "./src/index.vue";
+import LeButton from './src/index.vue'
 
-export * from "./src/typing";
+export * from './src/typing'
 
-export default LeButton;
+export default LeButton

@@ -5,24 +5,24 @@
 </template>
 
 <script lang="ts" setup>
-import type { ButtonType, ButtonSize } from "@/components/LeButton";
+import type { ButtonType, ButtonSize } from '@/components/LeButton'
 
-import { provide, reactive, toRef } from "vue";
+import { provide, reactive, toRef } from 'vue'
 
-import { buttonGroupContextKey } from "@/tokens/button";
+import { buttonGroupContextKey } from '@/tokens/button'
 
 export interface Props {
-  type?: ButtonType;
-  size?: ButtonSize;
+  type?: ButtonType
+  size?: ButtonSize
 }
 
-const props = defineProps<Props>();
+const props = defineProps<Props>()
 
 provide(
   buttonGroupContextKey,
   reactive({
-    type: toRef(props, "type"),
-    size: toRef(props, "size"),
+    type: toRef(props, 'type'),
+    size: toRef(props, 'size')
   })
-);
+)
 </script>

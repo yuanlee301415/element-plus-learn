@@ -1,17 +1,17 @@
 .space {
-    display: inline-flex;
-    vertical-align: top
+  display: inline-flex;
+  vertical-align: top;
 }
 
 .space__item {
-    display: flex;
-    flex-wrap: wrap
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.space__item>* {
-    flex: 1
+.space__item > * {
+  flex: 1;
 }
 
 .space--vertical {
-    flex-direction: column
+  flex-direction: column;
 }

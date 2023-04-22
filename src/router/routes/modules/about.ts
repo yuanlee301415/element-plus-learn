@@ -1,24 +1,24 @@
-import type { AppRouteRecordRaw } from "@/router/types";
+import type { AppRouteRecordRaw } from '@/router/types'
 
-import { LAYOUT } from "@/router/constant";
+import { LAYOUT } from '@/router/constant'
 
 const ABOUT_ROUTE: AppRouteRecordRaw = {
-  path: "/about",
-  name: "About",
-  redirect: "/about",
+  path: '/about',
+  name: 'About',
+  redirect: '/about',
   component: LAYOUT,
   meta: {
-    title: "关于",
-    hiddenChildrenInMenu: true,
+    title: '关于',
+    hiddenChildrenInMenu: true
   },
   children: [
     {
-      path: "",
-      name: "AboutPage",
-      component: () => import("@/views/About.vue"),
-      meta: {},
-    },
-  ],
-};
+      path: '',
+      name: 'AboutPage',
+      component: () => import('@/views/About.vue'),
+      meta: {}
+    }
+  ]
+}
 
-export default ABOUT_ROUTE;
+export default ABOUT_ROUTE

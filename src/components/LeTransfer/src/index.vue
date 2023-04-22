@@ -62,35 +62,35 @@
 </template>
 
 <script setup lang="ts">
-import type { TransferPanelInstance } from "./typing";
+import type { TransferPanelInstance } from './typing'
 
-import { ref } from "vue";
-import TransferPanel from "./transfer-panel.vue";
-import { transferProps, transferEmit } from "./typing";
-import { useTransfer } from "./useTransfer";
+import { ref } from 'vue'
+import TransferPanel from './transfer-panel.vue'
+import { transferProps, transferEmit } from './typing'
+import { useTransfer } from './useTransfer'
 
-const props = defineProps(transferProps);
-console.log("Transfer>props:", props);
+const props = defineProps(transferProps)
+console.log('Transfer>props:', props)
 
-const emit = defineEmits(transferEmit);
+const emit = defineEmits(transferEmit)
 const {
   leftItems,
   rightItems,
   leftSelectedKeysModelValue,
   rightSelectedKeysModelValue,
   toRight,
-  toLeft,
-} = useTransfer(props, emit);
+  toLeft
+} = useTransfer(props, emit)
 
-const leftPanelRef = ref<TransferPanelInstance>();
-const rightPanelRef = ref<TransferPanelInstance>();
+const leftPanelRef = ref<TransferPanelInstance>()
+const rightPanelRef = ref<TransferPanelInstance>()
 
 defineExpose({
   leftPanel: leftPanelRef,
-  rightPanel: rightPanelRef,
-});
+  rightPanel: rightPanelRef
+})
 </script>
 
 <style>
-@import "style.css";
+@import 'style.css';
 </style>

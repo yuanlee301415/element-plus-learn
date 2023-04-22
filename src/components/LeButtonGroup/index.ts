@@ -1,3 +1,3 @@
-import LeButtonGroup from "./src/index.vue";
+import LeButtonGroup from './src/index.vue'
 
-export default LeButtonGroup;
+export default LeButtonGroup

@@ -1,3 +1,3 @@
-import LeAvatar from "./src/index.vue";
+import LeAvatar from './src/index.vue'
 
-export default LeAvatar;
+export default LeAvatar

@@ -2,14 +2,11 @@
   <div
     :class="{
       'is-background': props.background,
-      'pagination--small': props.small,
+      'pagination--small': props.small
     }"
     class="pagination"
   >
-    <span
-      v-if="layout.total"
-      :disabled="props.disabled"
-      class="pagination__total"
+    <span v-if="layout.total" :disabled="props.disabled" class="pagination__total"
       >Total {{ props.total }}</span
     >
 
@@ -19,9 +16,7 @@
         :disabled="props.disabled"
         @change="handleChangePageSize($event)"
       >
-        <option v-for="size of props.pageSizes" :key="size" :value="size">
-          {{ size }}/page
-        </option>
+        <option v-for="size of props.pageSizes" :key="size" :value="size">{{ size }}/page</option>
       </select>
     </div>
 
@@ -39,7 +34,7 @@
         v-if="page.first"
         :class="{
           'is-active': page.first === currentPage,
-          'is-disabled': props.disabled,
+          'is-disabled': props.disabled
         }"
         @click="handlePage(page.first)"
       >
@@ -61,7 +56,7 @@
         :key="n"
         :class="{
           'is-active': n === currentPage,
-          'is-disabled': props.disabled,
+          'is-disabled': props.disabled
         }"
         @click="handlePage(n)"
       >
@@ -82,7 +77,7 @@
         v-if="page.last"
         :class="{
           'is-active': page.last === currentPage,
-          'is-disabled': props.disabled,
+          'is-disabled': props.disabled
         }"
         @click="handlePage(page.last)"
       >
@@ -99,11 +94,7 @@
       &gt;
     </button>
 
-    <span
-      v-if="layout.jumper"
-      :class="{ 'is-disabled': props.disabled }"
-      class="pagination__jump"
-    >
+    <span v-if="layout.jumper" :class="{ 'is-disabled': props.disabled }" class="pagination__jump">
       <span class="pagination__goto">Go to</span>
       <div class="pagination__editor">
         <input
@@ -118,11 +109,11 @@
 </template>
 
 <script setup lang="ts">
-import { pageProps, pageEmit } from "./typing";
-import { usePage } from "./userPage";
+import { pageProps, pageEmit } from './typing'
+import { usePage } from './userPage'
 
-const props = defineProps(pageProps);
-const emit = defineEmits(pageEmit);
+const props = defineProps(pageProps)
+const emit = defineEmits(pageEmit)
 const {
   page,
   currentPage,
@@ -133,12 +124,12 @@ const {
   handleChangePageSize,
   layout,
   jumper,
-  handleJumper,
-} = usePage(props, emit);
+  handleJumper
+} = usePage(props, emit)
 </script>
 
 <style>
-@import "./style.css";
+@import './style.css';
 
 .more {
   cursor: pointer;

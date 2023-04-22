@@ -1,4 +1,4 @@
-import LeTransfer from "./src/index.vue";
+import LeTransfer from './src/index.vue'
 
-export * from "./src/typing";
-export default LeTransfer;
+export * from './src/typing'
+export default LeTransfer

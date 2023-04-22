@@ -7,16 +7,16 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from "vue";
-import { iconProps } from "./typing";
+import { computed } from 'vue'
+import { iconProps } from './typing'
 
-const props = defineProps(iconProps);
+const props = defineProps(iconProps)
 const style = computed(() => ({
-  "--color": props.color,
-  "font-size": props.size && `${props.size}px`,
-}));
+  '--color': props.color,
+  'font-size': props.size && `${props.size}px`
+}))
 </script>
 
 <style>
-@import "style.css";
+@import 'style.css';
 </style>

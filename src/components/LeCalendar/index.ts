@@ -1,4 +1,4 @@
-import LeCalendar from "./src/index.vue";
+import LeCalendar from './src/index.vue'
 
-export * from "./src/typing";
-export default LeCalendar;
+export * from './src/typing'
+export default LeCalendar

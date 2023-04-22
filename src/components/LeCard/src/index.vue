@@ -10,26 +10,26 @@
 </template>
 
 <script lang="ts" setup>
-import type { CSSProperties } from "vue";
+import type { CSSProperties } from 'vue'
 
-import { computed } from "vue";
+import { computed } from 'vue'
 
 export interface Props {
-  header?: string;
-  bodyStyle?: CSSProperties;
-  shadow?: "always" | "never" | "hover";
+  header?: string
+  bodyStyle?: CSSProperties
+  shadow?: 'always' | 'never' | 'hover'
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  shadow: "always",
-});
+  shadow: 'always'
+})
 
 const cls = computed(() => ({
-  [`is-always-shadow`]: props.shadow === "always",
-  [`is-hover-shadow`]: props.shadow === "hover",
-}));
+  [`is-always-shadow`]: props.shadow === 'always',
+  [`is-hover-shadow`]: props.shadow === 'hover'
+}))
 </script>
 
 <style>
-@import "./style.css";
+@import './style.css';
 </style>

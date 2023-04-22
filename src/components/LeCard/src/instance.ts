@@ -1,3 +1,3 @@
-import type Card from "./index.vue";
+import type Card from './index.vue'
 
-export type CardInstance = InstanceType<typeof Card>;
+export type CardInstance = InstanceType<typeof Card>
