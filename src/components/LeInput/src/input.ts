@@ -3,7 +3,8 @@ import type { ExtractPropTypes } from 'vue'
 import { UPDATE_MODEL_EVENT } from '@/constants/event'
 
 export const inputProps = {
-  modelValue: String
+  modelValue: String,
+  disabled: Boolean
 }
 export type InputProps = ExtractPropTypes<typeof inputProps>
 
