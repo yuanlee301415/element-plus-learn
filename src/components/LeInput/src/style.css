@@ -1,0 +1,378 @@
+.input {
+    --input-text-color: var(--text-color-regular);
+    --input-border: var(--border);
+    --input-hover-border: var(--border-color-hover);
+    --input-focus-border: var(--color-primary);
+    --input-transparent-border: 0 0 0 1px transparent inset;
+    --input-border-color: var(--border-color);
+    --input-border-radius: var(--border-radius-base);
+    --input-bg-color: var(--fill-color-blank);
+    --input-icon-color: var(--text-color-placeholder);
+    --input-placeholder-color: var(--text-color-placeholder);
+    --input-hover-border-color: var(--border-color-hover);
+    --input-clear-hover-color: var(--text-color-secondary);
+    --input-focus-border-color: var(--color-primary)
+}
+
+.input {
+    --input-height: var(--component-size);
+    position: relative;
+    font-size: var(--font-size-base);
+    display: inline-flex;
+    width: 100%;
+    line-height: var(--input-height);
+    box-sizing: border-box;
+    vertical-align: middle
+}
+
+.input::-webkit-scrollbar {
+    z-index: 11;
+    width: 6px
+}
+
+.input::-webkit-scrollbar:horizontal {
+    height: 6px
+}
+
+.input::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    width: 6px;
+    background: var(--text-color-disabled)
+}
+
+.input::-webkit-scrollbar-corner {
+    background: var(--fill-color-blank)
+}
+
+.input::-webkit-scrollbar-track {
+    background: var(--fill-color-blank)
+}
+
+.input::-webkit-scrollbar-track-piece {
+    background: var(--fill-color-blank);
+    width: 6px
+}
+
+.input .input__clear,.input .input__password {
+    color: var(--input-icon-color);
+    font-size: 14px;
+    cursor: pointer
+}
+
+.input .input__clear:hover,.input .input__password:hover {
+    color: var(--input-clear-hover-color)
+}
+
+.input .input__count {
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-info);
+    font-size: 12px
+}
+
+.input .input__count .input__count-inner {
+    background: var(--fill-color-blank);
+    line-height: initial;
+    display: inline-block;
+    padding-left: 8px
+}
+
+.input__wrapper {
+    display: inline-flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 1px 11px;
+    background-color: var(--input-bg-color, var(--fill-color-blank));
+    background-image: none;
+    border-radius: var(--input-border-radius, var(--border-radius-base));
+    transition: var(--transition-box-shadow);
+    transform: translateZ(0);
+    box-shadow: 0 0 0 1px var(--input-border-color, var(--border-color)) inset
+}
+
+.input__wrapper:hover {
+    box-shadow: 0 0 0 1px var(--input-hover-border-color) inset
+}
+
+.input__wrapper.is-focus {
+    box-shadow: 0 0 0 1px var(--input-focus-border-color) inset
+}
+
+.input__inner {
+    --input-inner-height: calc(var(--input-height, 32px) - 2px);
+    width: 100%;
+    flex-grow: 1;
+    -webkit-appearance: none;
+    color: var(--input-text-color, var(--text-color-regular));
+    font-size: inherit;
+    height: var(--input-inner-height);
+    line-height: var(--input-inner-height);
+    padding: 0;
+    outline: none;
+    border: none;
+    background: none;
+    box-sizing: border-box
+}
+
+.input__inner:focus {
+    outline: none
+}
+
+.input__inner::placeholder {
+    color: var(--input-placeholder-color, var(--text-color-placeholder))
+}
+
+.input__inner[type=password]::-ms-reveal {
+    display: none
+}
+
+.input__prefix {
+    display: inline-flex;
+    white-space: nowrap;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+    height: 100%;
+    text-align: center;
+    color: var(--input-icon-color, var(--text-color-placeholder));
+    transition: all var(--transition-duration);
+    pointer-events: none
+}
+
+.input__prefix-inner {
+    pointer-events: all;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center
+}
+
+.input__prefix-inner>:last-child {
+    margin-right: 8px
+}
+
+.input__prefix-inner>:first-child,.input__prefix-inner>:first-child.input__icon {
+    margin-left: 0
+}
+
+.input__suffix {
+    display: inline-flex;
+    white-space: nowrap;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+    height: 100%;
+    text-align: center;
+    color: var(--input-icon-color, var(--text-color-placeholder));
+    transition: all var(--transition-duration);
+    pointer-events: none
+}
+
+.input__suffix-inner {
+    pointer-events: all;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center
+}
+
+.input__suffix-inner>:first-child {
+    margin-left: 8px
+}
+
+.input .input__icon {
+    height: inherit;
+    line-height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all var(--transition-duration);
+    margin-left: 8px
+}
+
+.input__validateIcon {
+    pointer-events: none
+}
+
+.input.is-active .input__wrapper {
+    /*box-shadow: 0 0 0 1px var(--input-focus-color, ) inset*/
+}
+
+.input.is-disabled {
+    cursor: not-allowed
+}
+
+.input.is-disabled .input__wrapper {
+    background-color: var(--disabled-bg-color);
+    box-shadow: 0 0 0 1px var(--disabled-border-color) inset
+}
+
+.input.is-disabled .input__inner {
+    color: var(--disabled-text-color);
+    -webkit-text-fill-color: var(--disabled-text-color);
+    cursor: not-allowed
+}
+
+.input.is-disabled .input__inner::placeholder {
+    color: var(--text-color-placeholder)
+}
+
+.input.is-disabled .input__icon {
+    cursor: not-allowed
+}
+
+.input.is-exceed .input__wrapper {
+    box-shadow: 0 0 0 1px var(--color-danger) inset
+}
+
+.input.is-exceed .input__suffix .input__count {
+    color: var(--color-danger)
+}
+
+.input--large {
+    --input-height: var(--component-size-large);
+    font-size: 14px
+}
+
+.input--large .input__wrapper {
+    padding: 1px 15px
+}
+
+.input--large .input__inner {
+    --input-inner-height: calc(var(--input-height, 40px) - 2px)
+}
+
+.input--small {
+    --input-height: var(--component-size-small);
+    font-size: 12px
+}
+
+.input--small .input__wrapper {
+    padding: 1px 7px
+}
+
+.input--small .input__inner {
+    --input-inner-height: calc(var(--input-height, 24px) - 2px)
+}
+
+.input-group {
+    display: inline-flex;
+    width: 100%;
+    align-items: stretch
+}
+
+.input-group__append,.input-group__prepend {
+    background-color: var(--fill-color-light);
+    color: var(--color-info);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    border-radius: var(--input-border-radius);
+    padding: 0 20px;
+    white-space: nowrap
+}
+
+.input-group__append:focus,.input-group__prepend:focus {
+    outline: none
+}
+
+.input-group__append .select,.input-group__append .button,.input-group__prepend .select,.input-group__prepend .button {
+    display: inline-block;
+    margin: 0 -20px
+}
+
+.input-group__append button.button,.input-group__append button.button:hover,.input-group__append div.select .input__wrapper,.input-group__append div.select:hover .input__wrapper,.input-group__prepend button.button,.input-group__prepend button.button:hover,.input-group__prepend div.select .input__wrapper,.input-group__prepend div.select:hover .input__wrapper {
+    border-color: transparent;
+    background-color: transparent;
+    color: inherit
+}
+
+.input-group__append .button,.input-group__append .input,.input-group__prepend .button,.input-group__prepend .input {
+    font-size: inherit
+}
+
+.input-group__prepend {
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 1px 0 0 0 var(--input-border-color) inset,0 1px 0 0 var(--input-border-color) inset,0 -1px 0 0 var(--input-border-color) inset
+}
+
+.input-group__append {
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    box-shadow: 0 1px 0 0 var(--input-border-color) inset,0 -1px 0 0 var(--input-border-color) inset,-1px 0 0 0 var(--input-border-color) inset
+}
+
+.input-group--prepend>.input__wrapper {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0
+}
+
+.input-group--prepend .input-group__prepend .select .input .input__inner {
+    box-shadow: none!important
+}
+
+.input-group--prepend .input-group__prepend .select .input .input__wrapper {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 1px 0 0 0 var(--input-border-color) inset,0 1px 0 0 var(--input-border-color) inset,0 -1px 0 0 var(--input-border-color) inset
+}
+
+.input-group--prepend .input-group__prepend .select .input.is-focus .input__inner {
+    box-shadow: none!important
+}
+
+.input-group--prepend .input-group__prepend .select .input.is-focus .input__wrapper {
+    box-shadow: 1px 0 0 0 var(--input-focus-border-color) inset,1px 0 0 0 var(--input-focus-border-color),0 1px 0 0 var(--input-focus-border-color) inset,0 -1px 0 0 var(--input-focus-border-color) inset!important;
+    z-index: 2
+}
+
+.input-group--prepend .input-group__prepend .select .input.is-focus .input__wrapper:focus {
+    outline: none;
+    z-index: 2;
+    box-shadow: 1px 0 0 0 var(--input-focus-border-color) inset,1px 0 0 0 var(--input-focus-border-color),0 1px 0 0 var(--input-focus-border-color) inset,0 -1px 0 0 var(--input-focus-border-color) inset!important
+}
+
+.input-group--prepend .input-group__prepend .select:hover .input__inner {
+    box-shadow: none!important
+}
+
+.input-group--prepend .input-group__prepend .select:hover .input__wrapper {
+    z-index: 1;
+    box-shadow: 1px 0 0 0 var(--input-hover-border-color) inset,1px 0 0 0 var(--input-hover-border-color),0 1px 0 0 var(--input-hover-border-color) inset,0 -1px 0 0 var(--input-hover-border-color) inset!important
+}
+
+.input-group--append>.input__wrapper {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0
+}
+
+.input-group--append .input-group__append .select .input .input__inner {
+    box-shadow: none!important
+}
+
+.input-group--append .input-group__append .select .input .input__wrapper {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    box-shadow: 0 1px 0 0 var(--input-border-color) inset,0 -1px 0 0 var(--input-border-color) inset,-1px 0 0 0 var(--input-border-color) inset
+}
+
+.input-group--append .input-group__append .select .input.is-focus .input__inner {
+    box-shadow: none!important
+}
+
+.input-group--append .input-group__append .select .input.is-focus .input__wrapper {
+    z-index: 2;
+    box-shadow: -1px 0 0 0 var(--input-focus-border-color),-1px 0 0 0 var(--input-focus-border-color) inset,0 1px 0 0 var(--input-focus-border-color) inset,0 -1px 0 0 var(--input-focus-border-color) inset!important
+}
+
+.input-group--append .input-group__append .select:hover .input__inner {
+    box-shadow: none!important
+}
+
+.input-group--append .input-group__append .select:hover .input__wrapper {
+    z-index: 1;
+    box-shadow: -1px 0 0 0 var(--input-hover-border-color),-1px 0 0 0 var(--input-hover-border-color) inset,0 1px 0 0 var(--input-hover-border-color) inset,0 -1px 0 0 var(--input-hover-border-color) inset!important
+}

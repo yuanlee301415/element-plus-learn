@@ -7,6 +7,7 @@ import { setupStore } from '@/store'
 import Icon from '@/components/Icon'
 import LeButton from '@/components/LeButton'
 import LeButtonGroup from '@/components/LeButtonGroup'
+import LeInput from '@/components/LeInput'
 import '@/assets/main.css'
 
 function bootstrap() {
@@ -16,6 +17,7 @@ function bootstrap() {
   app.component('Icon', Icon)
   app.component('LeButton', LeButton)
   app.component('LeButtonGroup', LeButtonGroup)
+  app.component('LeInput', LeInput)
   app.mount('#app')
 }
 

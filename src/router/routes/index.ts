@@ -20,6 +20,7 @@ import PAGINATION_ROUTE from '@/router/routes/modules/pagination'
 import EMPTY_ROUTE from '@/router/routes/modules/empty'
 import TAG_ROUTE from '@/router/routes/modules/tag'
 import BREADCRUMB_ROUTE from '@/router/routes/modules/breadcrumb'
+import INPUT_ROUTE from "@/router/routes/modules/input";
 // import NESTED_ROUTE from "@/router/routes/modules/nested";
 
 export const ROOT_ROUTE: AppRouteRecordRaw = {
@@ -91,6 +92,7 @@ export const basicRoutes = [
   EMPTY_ROUTE,
   TAG_ROUTE,
   BREADCRUMB_ROUTE,
-  // NESTED_ROUTE,
+  INPUT_ROUTE,
+// NESTED_ROUTE,
   PAGE_NOT_FOUND_ROUTE
 ]
