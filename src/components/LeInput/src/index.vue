@@ -2,6 +2,13 @@
   <div :class="inputCls" class="input">
     <div :class="wrapperCls" class="input__wrapper">
 
+      <span v-if="props.prefixIcon" class="input__prefix">
+        <span class="input__prefix-inner">
+          <slot name="prefix"/>
+          <icon :name="props.prefixIcon" class="input__icon"/>
+        </span>
+      </span>
+
       <input
           :disabled="props.disabled"
           type="text"
@@ -10,7 +17,12 @@
           @focus="handleFocus"
           @blur="handleBlur"
       >
-
+      <span v-if="props.suffixIcon" class="input__suffix">
+        <span class="input__suffix-inner">
+          <slot name="suffix"/>
+          <icon :name="props.suffixIcon" class="input__icon"/>
+        </span>
+      </span>
     </div>
   </div>
 </template>

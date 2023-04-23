@@ -4,7 +4,10 @@ import { UPDATE_MODEL_EVENT } from '@/constants/event'
 
 export const inputProps = {
   modelValue: String,
-  disabled: Boolean
+  disabled: Boolean,
+  clearable: Boolean,
+  prefixIcon: String,
+  suffixIcon: String,
 }
 export type InputProps = ExtractPropTypes<typeof inputProps>
 
