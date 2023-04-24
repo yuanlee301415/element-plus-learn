@@ -8,6 +8,8 @@ export const inputProps = {
   clearable: Boolean,
   prefixIcon: String,
   suffixIcon: String,
+  formatter: Function,
+  parser: Function,
 }
 export type InputProps = ExtractPropTypes<typeof inputProps>
 

@@ -48,8 +48,17 @@ const wrapperCls = reactive({
 const clearIconVisible = ref(false)
 const nativeInputValue = computed(() => props.modelValue ? String(props.modelValue) : '')
 
+function setNativeInputValue() {
+  const input = inputRef.value
+  if (!input || input.value === nativeInputValue.value) return
+  inputRef.value!.value = nativeInputValue.value
+}
 async function handleInput (event: Event){
-  const { value }= event.target as HTMLInputElement
+  let { value } = event.target as HTMLInputElement
+  if (props.formatter) {
+    value = props.parser?.(value)
+    value = props.formatter(value)
+  }
   clearIconVisible.value = true
   emit(UPDATE_MODEL_EVENT, value)
   emit(INPUT_EVENT, value)
@@ -59,9 +68,6 @@ async function handleInput (event: Event){
 function handleChange(event: Event) {
   const { value } = event.target as HTMLInputElement
   emit(CHANGE_EVENT, value)
-}
-function setNativeInputValue() {
-  inputRef.value!.value = nativeInputValue.value
 }
 function handleFocus() {
   wrapperCls["is-focus"] = true

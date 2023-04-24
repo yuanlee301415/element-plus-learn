@@ -2,7 +2,7 @@
   <dl class="demo">
     <dt>Basic</dt>
     <dd>
-      <LeInput v-model="valA"></LeInput>
+      <LeInput v-model="valA" @change="handleChange" @input="handleInput"></LeInput>
     </dd>
   </dl>
 
@@ -43,12 +43,25 @@
       <LeInput v-model="valA" :clearable="clearableA"></LeInput>
     </dd>
   </dl>
+
+  <dl class="demo">
+    <dt>格式化</dt>
+    <dd>
+      <LeInput v-model="valA"
+               :clearable="clearableA"
+               :formatter="(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')"
+               :parser="(value) => value.replace(/\$\s?|(,*)/g, '')"
+               @change="handleChange"
+               @input="handleInput"
+      ></LeInput>
+    </dd>
+  </dl>
 </template>
 
 <script lang="ts" setup>
 import {reactive, ref, watch} from "vue";
 
-const valA = ref('')
+const valA = ref('input')
 const disabledA = ref(true)
 const clearableA = ref(true)
 const prefixIcon = ref('edit')
@@ -57,4 +70,12 @@ const suffixIcon = ref('male')
 watch(valA, val => {
   console.log('valA:', val)
 })
+
+function handleInput(value: string) {
+  console.log('handleInput>value:', value)
+}
+
+function handleChange(value: string) {
+  console.log('handleChange>value:', value)
+}
 </script>
