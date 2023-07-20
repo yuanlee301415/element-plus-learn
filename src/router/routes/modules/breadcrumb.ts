@@ -7,7 +7,7 @@ const BREADCRUMB_ROUTE: AppRouteRecordRaw = {
   redirect: '/breadcrumb',
   component: LAYOUT,
   meta: {
-    title: 'breadcrumb 面包屑',
+    title: 'Breadcrumb 面包屑',
     hiddenChildrenInMenu: true
   },
   children: [
